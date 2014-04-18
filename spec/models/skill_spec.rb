@@ -8,4 +8,6 @@ describe Skill do
 	subject { @skill }
 
 	it { should respond_to(:name) }
+	
+	it { should have_many(:users) }
 end

@@ -13,4 +13,5 @@ describe User do
 	it { should respond_to(:admin) }
 
 	it { should have_many(:organizations) }
+	it { should have_many(:skills) }
 end

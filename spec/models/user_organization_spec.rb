@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe UserOrganization do
-  # pending "add some examples to (or delete) #{__FILE__}"
+	before do 
+		@user_organization = create(:user_organization)
+	end
+
+	subject { @user_organization }
+
+	it { should belong_to(:user) }
+	it { should belong_to(:organization) }
 end

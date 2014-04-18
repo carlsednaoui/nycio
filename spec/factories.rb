@@ -28,4 +28,9 @@ FactoryGirl.define do
 		user
 		organization
 	end
+
+	factory :user_skill do
+		user
+		skill
+	end
 end
