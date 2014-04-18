@@ -9,5 +9,5 @@ describe Occurrence do
 
 	it { should respond_to(:start_time) }
 
-	# it { should belong_to(:event) }
+	it { should belong_to(:event) }
 end

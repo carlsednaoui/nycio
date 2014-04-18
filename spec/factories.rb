@@ -11,6 +11,6 @@ FactoryGirl.define do
 	end
 
 	factory :occurrence do
-
+		event
 	end
 end
