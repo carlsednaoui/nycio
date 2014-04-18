@@ -11,4 +11,5 @@ describe Organization do
 	it { should respond_to(:description) }
 
 	it { should have_many(:events) }
+	it { should have_many(:users) }
 end

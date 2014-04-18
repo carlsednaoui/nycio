@@ -11,4 +11,6 @@ describe User do
 	it { should respond_to(:public) }
 	it { should respond_to(:birthdate) }
 	it { should respond_to(:admin) }
+
+	it { should have_many(:organizations) }
 end

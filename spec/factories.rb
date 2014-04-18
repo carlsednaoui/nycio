@@ -23,4 +23,9 @@ FactoryGirl.define do
 		password 			  'testingnycio'
 		password_confirmation 'testingnycio'
 	end
+
+	factory :user_organization do
+		user
+		organization
+	end
 end
