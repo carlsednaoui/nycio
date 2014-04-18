@@ -12,4 +12,5 @@ describe Event do
 
 	it { should belong_to(:organization) }
 	it { should have_many(:occurrences) }
+	it { should have_many(:skills) }
 end

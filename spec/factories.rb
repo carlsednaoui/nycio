@@ -5,6 +5,11 @@ FactoryGirl.define do
 		organization
 	end
 
+	factory :event_skill do
+		event
+		skill
+	end
+
 	factory :occurrence do
 		event
 	end
