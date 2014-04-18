@@ -11,4 +11,5 @@ describe Event do
 	it { should respond_to(:description) }
 
 	it { should belong_to(:organization) }
+	# it { should have_many(:occurrences) }
 end
