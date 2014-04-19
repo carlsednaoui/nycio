@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 describe User do
-	before do 
-		@user = create(:user)
-	end
-
+	before { @user = create(:user) }
 	subject { @user }
 
 	it { should respond_to(:name) }

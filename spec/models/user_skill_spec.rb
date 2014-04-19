@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe UserSkill do
-	before do 
-		@user_skill = create(:user_skill)
-	end
+	before { @user_skill = create(:user_skill) }
 
 	subject { @user_skill }
 

@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe Occurrence do
-	before do 
-		@occurrence = create(:occurrence)
-	end
+	before { @occurrence = create(:occurrence) }
 
 	subject { @occurrence }
 

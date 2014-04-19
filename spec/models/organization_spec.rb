@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 describe Organization do
-	before do 
-		@organization = create(:organization)
-	end
-
+	before { @organization = create(:organization) }
 	subject { @organization }
 
 	it { should respond_to(:name) }

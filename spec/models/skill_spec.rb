@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 describe Skill do
-	before do 
-		@skill = create(:skill)
-	end
-
+	before { @skill = create(:skill) }
 	subject { @skill }
 
 	it { should respond_to(:name) }

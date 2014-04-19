@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 describe UserOrganization do
-	before do 
-		@user_organization = create(:user_organization)
-	end
-
+	before {@user_organization = create(:user_organization)}
 	subject { @user_organization }
 
 	it { should belong_to(:user) }

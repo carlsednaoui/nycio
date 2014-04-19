@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 describe Event do
-	before do 
-		@event = create(:event)
-	end
-
+	before { @event = create(:event) }
 	subject { @event }
 
 	it { should respond_to(:name) }
