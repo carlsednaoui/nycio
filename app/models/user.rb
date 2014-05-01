@@ -11,4 +11,10 @@ class User < ActiveRecord::Base
 
   has_many :user_skills, dependent: :destroy
   has_many :skills, through: :user_skills
+
+  after_create :assign_default_role
+
+  def assign_default_role
+    add_role(:volunteer)
+  end
 end

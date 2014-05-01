@@ -11,4 +11,9 @@ describe User do
 
 	it { should have_many(:organizations) }
 	it { should have_many(:skills) }
+
+	it "it should have default role: volunteer" do
+		@user.has_role?(:admin).should be_false
+		@user.has_role?(:volunteer).should be_true
+	end
 end
