@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 	namespace :admin do
 		get '/organizations', to: 'admin_pages#organizations'
 		get '/events', to: 'admin_pages#events'
+		get '/users', to: 'admin_pages#users'
 	end
 end

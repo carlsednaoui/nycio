@@ -5,5 +5,8 @@ module Admin
 
 		def events
 		end
+
+		def users
+		end
 	end
 end
