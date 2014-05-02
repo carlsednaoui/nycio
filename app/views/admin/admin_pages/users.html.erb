@@ -6,6 +6,7 @@
 			<th>ID</th>
 			<th>Name</th>
 			<th>Email</th>
+			<th>Roles</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -19,6 +20,9 @@
 				</td>
 				<td>
 					<%= user.email %>
+				</td>
+				<td>
+					<%= user.roles.pluck(:name) %>
 				</td>
 			</tr>
 		<% end %>

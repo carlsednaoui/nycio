@@ -24,7 +24,30 @@ user3 = User.create(name: "Matt Star",
 user3.add_role "admin"
 
 
+# Volunteers
+
+volunteer_list = [
+  ["Test Guy", "test@example.com", "password"],
+  ["Joe Somebody", "joe@example.com", "password"]
+]
+
+volunteer_list.each do |name, email, password|
+	User.create(name: name, email: email, password: password)
+end
+
+
 # Organizations
+
+organization_list = [
+  [ "Coder Dojo", "It's a dojo, and you code!" ],
+  [ "Great Organization", "The greatest of great organizations" ],
+  [ "Fun Organization", "This organization is SO fun" ],
+  [ "The Best Organization", "It's not the greatest, it's the best organization!" ]
+]
+
+organization_list.each do |name, description|
+	Organization.create(name: name, description: description)
+end
 
 org = Organization.create(name: "Test Organization",
 						  description: "What a mighty fine test organization.")
@@ -41,21 +64,35 @@ event = Event.create(name: "Test Event",
 					 description: "GONNA TEACH SOME KIDS TO CODE at this lovely event!!!",
 					 organization: org)
 
+event2 = Event.create(name: "Test Event 2",
+					 description: "Gonna teach at this second event.",
+					 organization: org)
+
 
 # Skills
 
 skill = Skill.create(name: "HTML")
 skill2 = Skill.create(name: "Ruby on Rails")
+skill3 = Skill.create(name: "Python")
 
 
 # Event Skills
 
 EventSkill.create(skill: skill, event: event)
 EventSkill.create(skill: skill2, event: event)
+EventSkill.create(skill: skill3, event: event2)
 
 
 # Occurrence
 
 Occurrence.create(event: event,
+				  start_time: (DateTime.now + 15.days),
+				  end_time: (DateTime.now + 15.days + 2.hours))
+
+Occurrence.create(event: event,
 				  start_time: (DateTime.now + 30.days),
 				  end_time: (DateTime.now + 30.days + 3.hours))
+
+Occurrence.create(event: event2,
+				  start_time: (DateTime.now + 10.days + 1.hour),
+				  end_time: (DateTime.now + 10.days + 5.hours))
