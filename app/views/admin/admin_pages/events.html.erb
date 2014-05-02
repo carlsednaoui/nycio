@@ -1,1 +1,30 @@
 <h1>This is where the events will be for admins</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Organization</th>
+			<th>Name</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @events.each do |event| %>
+			<tr>
+				<td>
+					<%= event.id %>
+				</td>
+				<td>
+					<%= event.organization.name %>
+				</td>
+				<td>
+					<%= event.name %>
+				</td>
+				<td>
+					<%= event.description %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
