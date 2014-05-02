@@ -1,2 +1,0 @@
-class AdminPagesController < ApplicationController
-end
