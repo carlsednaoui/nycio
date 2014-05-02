@@ -1,1 +1,26 @@
 <h1>This is where the organizations will be for admins</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @organizations.each do |organization| %>
+			<tr>
+				<td>
+					<%= organization.id %>
+				</td>
+				<td>
+					<%= organization.name %>
+				</td>
+				<td>
+					<%= organization.description %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
