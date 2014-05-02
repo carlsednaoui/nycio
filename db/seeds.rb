@@ -8,15 +8,18 @@
 
 # Admin Users
 
-user1 = User.create(email: "carl@thinkful.com",
+user1 = User.create(name: "Carl Sednaoui",
+			email: "carl@thinkful.com",
 			password: "nyciopassword")
 user1.add_role "admin"
 
-user2 = User.create(email: "vmiclovich@thinkful.com",
+user2 = User.create(name: "Victor Miclovich",
+			email: "vmiclovich@thinkful.com",
 			password: "nyciopassword")
 user2.add_role "admin"
 
-user3 = User.create(email: "mstar@thinkful.com",
+user3 = User.create(name: "Matt Star",
+			email: "mstar@thinkful.com",
 			password: "nyciopassword")
 user3.add_role "admin"
 
