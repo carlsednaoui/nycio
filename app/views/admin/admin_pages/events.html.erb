@@ -7,6 +7,7 @@
 			<th>Organization</th>
 			<th>Name</th>
 			<th>Description</th>
+			<th>Occurrences</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,6 +24,12 @@
 				</td>
 				<td>
 					<%= event.description %>
+				</td>
+				<td>
+					<% event.occurrences.each do |occurrence| %>
+						<%= occurrence.start_time.strftime("%b %d, %Y %l:%M %p") %> - 
+						<%= occurrence.end_time.strftime("%b %d, %Y %l:%M %p") %>
+					<% end %>
 				</td>
 			</tr>
 		<% end %>
