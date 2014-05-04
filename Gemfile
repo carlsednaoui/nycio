@@ -44,6 +44,9 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'devise'
 gem "rolify"
 
+# Quiet the asset pipeline https://github.com/evrone/quiet_assets
+gem 'quiet_assets', :group => :development
+
 group :development, :test do
   gem 'rspec-rails'
 end
