@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'pages#events'
   get '/organizations', to: 'pages#organizations'
-  get '/events/:id', to: 'pages#show_event'
-  get '/organizations/:id', to: 'pages#show_organization'
+  get '/events/:id', to: 'pages#show_event', as: 'event'
+  get '/organizations/:id', to: 'pages#show_organization', as: 'organization'
 
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
 
