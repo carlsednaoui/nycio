@@ -1,6 +1,7 @@
 @black: black;
 @dark-gray: #666666;
 @light-gray: #DDD;
+@very-light-gray: #F3F3F3;
 @dark-blue: #1F639D;
 @blue: #2A94D6;
 
@@ -39,6 +40,16 @@ h2 {
   }
 
   margin-bottom: @spacing;
+}
+
+.sitewide-header {
+  background-color: @very-light-gray;
+  height: 160px;
+  margin-bottom: @spacing;
+
+  .tagline {
+    margin-top: 50px;
+  }
 }
 
 .events,
@@ -87,4 +98,18 @@ h2 {
     font-weight: 300;
     margin-left: 3px;
   }
+}
+
+
+// sign up styles
+.sign-up {
+  label, input {
+    font-weight: 400;
+  }
+
+  label {
+    line-height: 3em;
+  }
+
+  margin-bottom: @spacing; 
 }
