@@ -1,1 +1,71 @@
-<%= @event.name %>
+<div class="event-header">
+  <div class="container-fluid">
+    <div class="row header-details">
+      <div class="col-md-3">
+        <%= link_to image_tag("https://pbs.twimg.com/profile_images/2213868378/logo.png"), organization_path(@event.organization) %>
+      </div>
+
+      <div class="col-md-9">
+        <h1><%= @event.name %></h1>
+        <h2><%= link_to @event.organization.name, organization_path(@event.organization) %></h2>
+
+        <!-- TODO: Clean this up -->
+        <p><%= Occurrence.find_by_event_id(@event.id).start_time.strftime('%A, %b %d') %>: <%= Occurrence.find_by_event_id(@event.id).start_time.strftime('%I:%M %p') %> - <%= Occurrence.find_by_event_id(@event.id).end_time.strftime('%I:%M %p') %></p>
+        
+        <div class="row">
+          <button type="button" class="btn btn-primary">VOLUNTEER</button>
+          <button type="button" class="btn btn-default">ATTEND</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- events info -->
+    <div class="col-md-12 event">
+      <div class="row">
+        <div class="col-md-3">
+          <p class="bold">About</p>
+        </div>
+        <div class="col-md-9">
+          <p><%= @event.description %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="bold">Volunteers needed</p>
+        </div>
+        <!-- TODO: Get this from DB -->
+        <div class="col-md-9">
+          <p>10</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="bold">Attendees</p>
+        </div>
+        <!-- TODO: Get this from DB -->
+        <div class="col-md-9">
+          <p>Male & Female, 7-14</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="bold">Event Type</p>
+        </div>
+        <!-- TODO: Get this from DB -->
+        <div class="col-md-9">
+          <p>After school</p>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+

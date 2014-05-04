@@ -1,6 +1,7 @@
 @black: black;
 @dark-gray: #666666;
 @light-gray: #DDD;
+@very-light-gray: #F3F3F3;
 @dark-blue: #1F639D;
 @blue: #2A94D6;
 
@@ -61,13 +62,12 @@ h2 {
   }
 
   p {
-    color: @blue;
     font-size: 1em;
   }
 }
 
-.event,
-.organization {
+.events .event,
+.organizations .organization {
   margin-bottom: @spacing;
 }
 
@@ -87,4 +87,84 @@ h2 {
     font-weight: 300;
     margin-left: 3px;
   }
+}
+
+// event show page
+.event-header {
+  background-color: @very-light-gray;
+  height: 160px;
+  margin-bottom: 100px;
+
+  .header-details {
+    margin-top: @spacing;
+
+    h1 {
+      margin-top: 0;
+    }
+
+    h2 {
+      color: @blue;
+      font-size: 1.4em;
+    }
+
+    // logo
+    img {
+      width: 180px;
+      height: 180px;
+      border: 1px solid @light-gray;
+      padding: 25px;
+      background-color: white;
+
+      -webkit-border-radius: @radius; 
+      -moz-border-radius: @radius; 
+      border-radius: @radius; 
+    }
+  }
+}
+
+.event {
+  .bold {
+    font-weight: 500;
+  }
+  
+  .row {
+    margin: 15px 0;
+  }
+}
+
+
+// sign up styles
+.sign-up-header {
+  background-color: @very-light-gray;
+  height: 160px;
+  margin-bottom: @spacing;
+
+  .tagline {
+    margin-top: 50px;
+  }
+}
+
+.sign-up {
+  label, input {
+    font-weight: 400;
+  }
+
+  label {
+    line-height: 3em;
+  }
+
+  // skills have checkboxes and need to be treated differently
+  div.skill {
+    margin: 10px 0;
+  }
+
+  label.skill {
+    margin-top: 0;
+  }
+
+  .skill {
+    line-height: 1.5em;
+  }
+
+  margin-bottom: @spacing; 
 }
