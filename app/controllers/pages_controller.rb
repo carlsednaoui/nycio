@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def events
     @events = Event.all
+    @skills = Skill.all
   end
 
   def show_event
