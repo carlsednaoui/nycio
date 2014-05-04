@@ -2,8 +2,8 @@
   <div class="filter-group">
     <h3>Volunteer Skills</h3>
       <% @skills.each do |skill| %>
-      <%= check_box_tag(:skill) %>
-      <%= label_tag(:skill, skill.name) %><br>
+      <%= check_box_tag(skill) %>
+      <%= label_tag(skill, skill.name) %><br>
       <% end %>
   </div>
   
