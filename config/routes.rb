@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 		get '/events', to: 'admin_pages#events'
 		get '/users', to: 'admin_pages#users'
 	end
+
+  resources :organizations
 end

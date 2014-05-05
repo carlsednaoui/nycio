@@ -9,4 +9,5 @@ describe Organization do
 
 	it { should have_many(:events) }
 	it { should have_many(:users) }
+    it { should belong_to :user}
 end
