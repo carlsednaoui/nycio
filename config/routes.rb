@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
 
   resources :organizations
+  resources :events
 
 	namespace :admin do
 		get '/organizations', to: 'admin_pages#organizations'
