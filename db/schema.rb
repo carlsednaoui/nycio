@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140502012553) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "roles", force: true do |t|
