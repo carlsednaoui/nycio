@@ -8,6 +8,7 @@
 			<th>Name</th>
 			<th>Description</th>
 			<th>Occurrences</th>
+			<th>Skills Required</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -30,6 +31,9 @@
 						<%= occurrence.start_time.strftime("%b %d, %Y %l:%M %p") %> - 
 						<%= occurrence.end_time.strftime("%b %d, %Y %l:%M %p") %>
 					<% end %>
+				</td>
+				<td>
+					<%= event.skills.pluck(:name) %>
 				</td>
 			</tr>
 		<% end %>
