@@ -6,6 +6,7 @@
 			<th>ID</th>
 			<th>Name</th>
 			<th>Description</th>
+			<th>Upcoming Events</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -19,6 +20,9 @@
 				</td>
 				<td>
 					<%= organization.description %>
+				</td>
+				<td>
+					<%= organization_events_list(organization) %>
 				</td>
 			</tr>
 		<% end %>

@@ -9,4 +9,20 @@ module AdminPagesHelper
 			"None"
 		end
 	end
+
+	def organization_events_list(organization)
+		if organization.events.present?
+			content_tag(:ul, :class => "admin-events-list") do
+				list = ''
+				organization.events.each do |event|
+					list += content_tag(:li) do
+						link_to event.name, event_path(event)
+					end
+				end
+				raw(list)
+			end
+		else
+			"No Upcoming Events"
+		end
+	end
 end
