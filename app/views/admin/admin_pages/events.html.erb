@@ -19,10 +19,10 @@
 					<%= event.id %>
 				</td>
 				<td>
-					<%= event.organization.name %>
+					<%= link_to event.organization.name, event.organization %>
 				</td>
 				<td>
-					<%= event.name %>
+					<%= link_to event.name, event %>
 				</td>
 				<td>
 					<%= event.description %>
@@ -34,7 +34,7 @@
 					<%= upcoming_occurrence(event) %>
 				</td>
 				<td>
-					<%= event.skills.pluck(:name) %>
+					<%= unordered_listify(event.skills.pluck(:name)) %>
 				</td>
 			</tr>
 		<% end %>
