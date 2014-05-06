@@ -8,17 +8,20 @@
 
 # Admin Users
 
-user1 = User.create(name: "Carl Sednaoui",
+user1 = User.create(first_name: "Carl",
+			last_name: "Sednaoui",
 			email: "carl@thinkful.com",
 			password: "nyciopassword")
 user1.add_role "admin"
 
-user2 = User.create(name: "Victor Miclovich",
+user2 = User.create(first_name: "Victor",
+			last_name: "Miclovich",
 			email: "vmiclovich@thinkful.com",
 			password: "nyciopassword")
 user2.add_role "admin"
 
-user3 = User.create(name: "Matt Star",
+user3 = User.create(first_name: "Matt",
+			last_name: "Star",
 			email: "mstar@thinkful.com",
 			password: "nyciopassword")
 user3.add_role "admin"
@@ -27,12 +30,15 @@ user3.add_role "admin"
 # Volunteers
 
 volunteer_list = [
-  ["Test Guy", "test@example.com", "password"],
-  ["Joe Somebody", "joe@example.com", "password"]
+  ["Test", "Guy", "test@example.com", "password"],
+  ["Joe", "Somebody", "joe@example.com", "password"]
 ]
 
-volunteer_list.each do |name, email, password|
-	User.create(name: name, email: email, password: password)
+volunteer_list.each do |first_name, last_name, email, password|
+	User.create(first_name: first_name, 
+				last_name: last_name, 
+				email: email, 
+				password: password)
 end
 
 
