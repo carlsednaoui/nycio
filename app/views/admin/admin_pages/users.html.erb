@@ -22,7 +22,7 @@
 					<%= user.email %>
 				</td>
 				<td>
-					<%= user.roles.pluck(:name) %>
+					<%= unordered_listify(user.roles.pluck(:name)) %>
 				</td>
 			</tr>
 		<% end %>

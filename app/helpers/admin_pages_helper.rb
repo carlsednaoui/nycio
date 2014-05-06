@@ -1,4 +1,18 @@
 module AdminPagesHelper
+	def unordered_listify(list, klass = nil)
+		if list.present?
+			content_tag(:ul, :class => klass) do
+				output = ''
+				list.each do |li|
+					output += content_tag(:li, li)
+				end
+				raw(output)
+			end
+		else
+			"None"
+		end
+	end
+
 	def upcoming_occurrence(event)
 		if event.occurrences.present?
 			occurrence = event.occurrences.reorder('start_time ASC').first
