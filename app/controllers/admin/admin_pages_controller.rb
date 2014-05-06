@@ -10,7 +10,12 @@ module Admin
 		end
 
 		def events
-			@events = Event.all
+			events = Event.all
+			if sort_column == "organization"
+				@events = events.includes(:organization).reorder("organizations.name " + sort_direction).references(:organization)
+			else
+				@events = events.order(sort_column + " " + sort_direction)
+			end
 		end
 
 		def users
@@ -24,7 +29,7 @@ module Admin
 		end
 
 		def sort_column
-			Organization.column_names.include?(params[:sort]) ? params[:sort] : "organizations.updated_at"
+			%w[name organization].include?(params[:sort]) ? params[:sort] : "updated_at"
 		end
 
 		def sort_direction
