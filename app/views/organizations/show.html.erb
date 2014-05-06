@@ -1,1 +1,18 @@
-<%= @organization.name %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 event">
+
+		<h1><%= @organization.name %></h1>
+
+		<h2><%= @organization.description %></h2>
+	</div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 event">
+		<% @organization.events.each do |event| %>
+			<%= link_to event.name, event %><br>
+		<% end %>
+	</div>
+  </div>
+<div>
