@@ -7,7 +7,8 @@
 			<th>Organization</th>
 			<th>Name</th>
 			<th>Description</th>
-			<th>Occurrences</th>
+			<th>Upcoming Occurrences</th>
+			<th>Most Recent</th>
 			<th>Skills Required</th>
 		</tr>
 	</thead>
@@ -27,10 +28,10 @@
 					<%= event.description %>
 				</td>
 				<td>
-					<% event.occurrences.each do |occurrence| %>
-						<%= occurrence.start_time.strftime("%b %d, %Y %l:%M %p") %> - 
-						<%= occurrence.end_time.strftime("%b %d, %Y %l:%M %p") %>
-					<% end %>
+					<%= event.occurrences.count %>
+				</td>
+				<td>
+					<%= upcoming_occurrence(event) %>
 				</td>
 				<td>
 					<%= event.skills.pluck(:name) %>
