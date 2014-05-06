@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    first_name + ' ' + last_name
+    name = []
+    name.push(first_name, last_name)
+    return name.join(' ')
   end
 end
