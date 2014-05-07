@@ -22,9 +22,9 @@
               <li><%= link_to "Edit Profile", edit_user_path(current_user) %></link_toi>
               <li class="divider"></li>
               <% if current_user.has_role? :admin %>
-                <li><%= link_to "Organizations", admin_organizations_path %></li>
-                <li><%= link_to "Events", admin_events_path %></li>
-                <li><%= link_to "Users", admin_users_path %></li>
+                <li><%= link_to "Admin Organizations", admin_organizations_path %></li>
+                <li><%= link_to "Admin Events", admin_events_path %></li>
+                <li><%= link_to "Admin Users", admin_users_path %></li>
                 <li class="divider"></li>
               <% end %>
               <li>

@@ -59,9 +59,11 @@ org = Organization.create(name: "Test Organization",
 						  description: "What a mighty fine test organization.")
 
 
-# Organization Manager
+# UserOrganization
 
-user1.add_role "manager", org
+UserOrganization.create(user_id: user1.id, organization_id: org.id, admin: true)
+UserOrganization.create(user_id: user2.id, organization_id: org.id)
+UserOrganization.create(user_id: User.last.id, organization_id: org.id)
 
 
 # Event
