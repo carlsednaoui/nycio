@@ -1,4 +1,6 @@
 class OrganizationsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+
   def index
     @organizations = Organization.all
   end
@@ -24,9 +26,19 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
+    @organization = Organization.find(params[:id])
   end
 
   def update
+    @organization = Organization.find(params[:id])
+
+    respond_to do |format|
+      if @organization.update_attributes(organization_params)
+        format.html { redirect_to @organization, notice: 'Organization Updated' }
+      else
+        format.html { render action: 'edit' }
+      end
+    end
   end
 
   def destroy
