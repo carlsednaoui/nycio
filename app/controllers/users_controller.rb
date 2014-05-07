@@ -14,9 +14,9 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		authorize! :manage, @user
 
-		if params[:skill_id].present?
-			params[:skill_id].each do |skill_id|
-				UserSkill.create(user_id: @user.id, skill_id: skill_id)
+		if skill_id_params.present?
+			skill_id_params.each do |skill_id|
+				UserSkill.find_or_create_by(user_id: @user.id, skill_id: skill_id)
 			end
 		end
 
@@ -44,5 +44,10 @@ class UsersController < ApplicationController
 		params.require(:user).permit(:email, :password, :password_confirmation,
 									 :first_name, :last_name, :birthdate,
 									 :gender, :phone)
+	end
+
+	def skill_id_params
+		int_array = params[:skill_id].collect{|i| i.to_i}
+		Skill.pluck(:id) & int_array == int_array ? params[:skill_id] : []
 	end
 end
