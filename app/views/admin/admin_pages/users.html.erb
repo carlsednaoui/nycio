@@ -31,7 +31,7 @@
 					<% if user.organizations.present? %>
 						<ul>
 							<% user.user_organizations.each do |uo| %>
-								<% if uo.admin? %>
+								<% if uo.manager? %>
 									<li><%= uo.organization.name %> <b>(Manager)</b></li>
 								<% else %>
 									<li><%= uo.organization.name %></li>
