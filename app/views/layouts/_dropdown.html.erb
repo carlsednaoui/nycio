@@ -1,0 +1,29 @@
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.full_name %><b class="caret"></b></a>
+  <ul class="dropdown-menu">
+    <li><%= link_to "Profile", current_user %></link_toi>
+    <li><%= link_to "Edit Profile", edit_user_path(current_user) %></link_toi>
+    <li class="divider"></li>
+    
+    <% if current_user.manager_organizations.present? %>
+      <% current_user.manager_organizations.each do |org| %>
+        <li><%= link_to org.name, org %></li>
+      <% end %>
+      <li class="divider"></li>
+    <% end %>
+
+    <% if current_user.has_role? :admin %>
+      <li><%= link_to "Admin Organizations", admin_organizations_path %></li>
+      <li><%= link_to "Admin Events", admin_events_path %></li>
+      <li><%= link_to "Admin Users", admin_users_path %></li>
+      <li class="divider"></li>
+    <% end %>
+    
+    <li>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <span class='fa fa-sign-out'></span>
+        Logout
+      <% end %>
+    </li>
+  </ul>
+</li>
