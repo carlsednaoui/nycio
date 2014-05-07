@@ -56,7 +56,8 @@ organization_list.each do |name, description|
 end
 
 org = Organization.create(name: "Test Organization",
-						  description: "What a mighty fine test organization.")
+						  description: "What a mighty fine test organization.",
+						  approved: true)
 
 
 # UserOrganization

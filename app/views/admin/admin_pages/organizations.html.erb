@@ -8,6 +8,7 @@
 			<th>Description</th>
 			<th>Managers</th>
 			<th>Upcoming Events</th>
+			<th>Approved?</th>
 			<th>Actions</th>
 		</tr>
 	</thead>
@@ -30,6 +31,9 @@
 				</td>
 				<td>
 					<%= organization_events_list(organization) %>
+				</td>
+				<td>
+					<%= organization.approved? %>
 				</td>
 				<td>
 					<%= link_to "Edit", edit_organization_path(organization) %>
