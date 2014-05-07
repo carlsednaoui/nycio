@@ -18,6 +18,7 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @organization.save
+        UserOrganization.create(user: current_user, organization: @organization, manager: true)
         format.html { redirect_to root_path, notice: 'New Organization proposed' }
       else
         format.html { render action: 'new' }
