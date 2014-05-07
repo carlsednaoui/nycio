@@ -52,7 +52,8 @@ organization_list = [
 ]
 
 organization_list.each do |name, description|
-	Organization.create(name: name, description: description)
+	each_org = Organization.create(name: name, description: description)
+	UserOrganization.create(user_id: user3.id, organization_id: each_org.id, manager: true)
 end
 
 org = Organization.create(name: "Test Organization",
