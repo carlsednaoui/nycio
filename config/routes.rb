@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 		get '/organizations', to: 'admin_pages#organizations'
 		get '/events', to: 'admin_pages#events'
 		get '/users', to: 'admin_pages#users'
+		post '/batch_actions', to: 'admin_pages#batch_actions'
 	end
 end
