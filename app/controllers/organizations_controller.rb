@@ -42,6 +42,12 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
+    @organization = Organization.find(params[:id])
+    @organization.destroy
+
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Removed Organization' }
+    end
   end
 
   private
