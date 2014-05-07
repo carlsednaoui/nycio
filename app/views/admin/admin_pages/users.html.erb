@@ -6,6 +6,7 @@
 			<th>ID</th>
 			<th>Name</th>
 			<th>Email</th>
+			<th>Skills</th>
 			<th>Roles</th>
 			<th>Actions</th>
 		</tr>
@@ -21,6 +22,9 @@
 				</td>
 				<td>
 					<%= user.email %>
+				</td>
+				<td>
+					<%= unordered_listify(user.skills.pluck(:name)) %>
 				</td>
 				<td>
 					<%= unordered_listify(user.roles.pluck(:name)) %>
