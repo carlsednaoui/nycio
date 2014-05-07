@@ -2,7 +2,51 @@
   <div class="row">
     <div class="col-md-12 event">
 
-		<h1>Edit <%= @user.full_name %></h1>
+		<h2>Edit Profile</h2>
+
+		<%= form_for(@user) do |f| %>
+			<%= render 'layouts/error_messages', object: f.object %>
+
+	      <div class="form-group row">
+	        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+	        <div class="col-sm-5">
+	          <%= f.email_field :email, class:"form-control", id:"inputEmail", placeholder:"name@example.com", autofocus: true %>
+	        </div>
+	      </div>
+
+	      <div class="form-group row">
+	        <label for="first_name" class="col-sm-2 control-label">First Name</label>
+	        <div class="col-sm-5">
+	          <%= f.text_field :first_name, class:"form-control", id:"first_name", placeholder:"Joe" %>
+	        </div>
+	      </div>
+
+	      <div class="form-group row">
+	        <label for="last_name" class="col-sm-2 control-label">Last Name</label>
+	        <div class="col-sm-5">
+	          <%= f.text_field :last_name, class:"form-control", id:"last_name", placeholder:"Somebody" %>
+	        </div>
+	      </div>
+
+	      <div class="form-group row">
+	        <label for="birthdate" class="col-sm-2 control-label">Birthdate</label>
+	        <div class="col-sm-5">
+	          <%= f.date_field :birthdate, class:"form-control", id:"birthdate" %>
+	        </div>
+	      </div>
+
+			<h2>Gender</h2>
+			<%= f.label :gender_male, "Male" %>
+			<%= f.radio_button :gender, "male" %>
+
+			<%= f.label :gender_female, "Female" %>	
+			<%= f.radio_button :gender, "female" %>
+
+			<br><br>
+			
+			<%= f.submit "Save" %>
+		<% end %>	
+
 	</div>
   </div>
 <div>
