@@ -80,6 +80,10 @@ event2 = Event.create(name: "Test Event 2",
 skill = Skill.create(name: "HTML")
 skill2 = Skill.create(name: "Ruby on Rails")
 skill3 = Skill.create(name: "Python")
+skill4 = Skill.create(name: "iOS")
+skill5 = Skill.create(name: "PHP")
+skill6 = Skill.create(name: "Javascript")
+skill7 = Skill.create(name: "CSS")
 
 
 # Event Skills
