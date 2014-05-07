@@ -1,2 +1,16 @@
-<h1>Organizations#index</h1>
-<p>Find me in app/views/organizations/index.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 event">
+		<h1>Organizations</h1>
+	</div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 event">
+		<% @organizations.each do |org| %>
+			<p><%= link_to org.name, org %></p>
+		<% end %>
+	</div>
+  </div>
+<div>
+
