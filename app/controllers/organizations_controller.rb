@@ -28,10 +28,12 @@ class OrganizationsController < ApplicationController
 
   def edit
     @organization = Organization.find(params[:id])
+    authorize! :manage, @organization
   end
 
   def update
     @organization = Organization.find(params[:id])
+    authorize! :manage, @organization
 
     respond_to do |format|
       if @organization.update_attributes(organization_params)
