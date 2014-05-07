@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
     name.push(first_name, last_name)
     return name.join(' ')
   end
+
+  def manager_organizations
+    self.organizations.where('user_organizations.manager IS true')
+  end
 end
