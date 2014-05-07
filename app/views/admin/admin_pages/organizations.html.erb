@@ -36,6 +36,7 @@
 					<%= organization.approved? %>
 				</td>
 				<td>
+					<%= link_to "Toggle Approval", admin_batch_actions_path(toggle_id: organization.id), :method => 'post' %>
 					<%= link_to "Edit", edit_organization_path(organization) %>
 					<%= link_to "Delete", organization, method: :delete, data: { confirm: "You sure?" } %>
 				</td>

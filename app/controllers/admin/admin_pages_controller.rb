@@ -9,6 +9,15 @@ module Admin
 			@organizations = organizations.order(sort_column + " " + sort_direction)
 		end
 
+		def batch_actions
+			if params[:toggle_id].present? && params[:toggle_id].to_i != 0
+				Organization.find(params[:toggle_id]).toggle!(:approved)
+				respond_to do |format|
+					format.html { redirect_to admin_organizations_path, notice: 'Approval Toggled' }
+				end
+			end
+		end
+
 		def events
 			events = Event.all
 			if sort_column == "organization"
