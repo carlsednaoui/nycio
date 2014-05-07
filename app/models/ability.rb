@@ -9,6 +9,7 @@ class Ability
       can :manage, :all
     else
       can :manage, user
+      can :manage, user.manager_organizations
       can :read, :all
     end
 
