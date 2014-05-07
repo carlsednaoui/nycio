@@ -93,6 +93,15 @@ EventSkill.create(skill: skill2, event: event)
 EventSkill.create(skill: skill3, event: event2)
 
 
+# User Skills
+
+UserSkill.create(skill: skill, user: user1)
+UserSkill.create(skill: skill, user: user2)
+UserSkill.create(skill: skill, user: user3)
+UserSkill.create(skill: skill7, user: user1)
+UserSkill.create(skill: skill7, user: user2)
+UserSkill.create(skill: skill7, user: user3)
+
 # Occurrence
 
 Occurrence.create(event: event,
