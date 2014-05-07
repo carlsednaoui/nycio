@@ -3,6 +3,7 @@
     <div class="col-md-12 event">
 
 		<h1><%= @user.full_name %></h1>
+		<p><%= @user.skills.pluck(:name) %></p>
 	</div>
   </div>
 <div>
