@@ -7,6 +7,7 @@
 			<th><%= sortable "name" %></th>
 			<th>Description</th>
 			<th>Upcoming Events</th>
+			<th>Actions</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,6 +24,10 @@
 				</td>
 				<td>
 					<%= organization_events_list(organization) %>
+				</td>
+				<td>
+					<%= link_to "Edit", edit_organization_path(organization) %>
+					<%= link_to "Delete", organization, method: :delete, data: { confirm: "You sure?" } %>
 				</td>
 			</tr>
 		<% end %>
