@@ -61,7 +61,7 @@ org = Organization.create(name: "Test Organization",
 
 # UserOrganization
 
-UserOrganization.create(user_id: user1.id, organization_id: org.id, admin: true)
+UserOrganization.create(user_id: user1.id, organization_id: org.id, manager: true)
 UserOrganization.create(user_id: user2.id, organization_id: org.id)
 UserOrganization.create(user_id: User.last.id, organization_id: org.id)
 
