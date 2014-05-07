@@ -15,8 +15,12 @@ class UsersController < ApplicationController
 		authorize! :manage, @user
 
 		if skill_id_params.present?
+			original_array = @user.user_skills.pluck(:skill_id)
 			skill_id_params.each do |skill_id|
 				UserSkill.find_or_create_by(user_id: @user.id, skill_id: skill_id)
+			end
+			(original_array - skill_id_params).each do |skill_id|
+				UserSkill.where(user_id: @user.id, skill_id: skill_id)[0].destroy
 			end
 		end
 
@@ -48,6 +52,6 @@ class UsersController < ApplicationController
 
 	def skill_id_params
 		int_array = params[:skill_id].collect{|i| i.to_i}
-		Skill.pluck(:id) & int_array == int_array ? params[:skill_id] : []
+		Skill.pluck(:id) & int_array == int_array ? int_array : []
 	end
 end
