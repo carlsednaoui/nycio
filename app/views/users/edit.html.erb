@@ -48,7 +48,9 @@
 				<label for="skills" class="col-sm-2 control-label skill">Skills</label>
 				<div class="col-sm-5">
 					<% Skill.all.each do |skill| %>
-						<%= check_box_tag 'skill_id[]', skill.id, false, id: "skill_#{skill.id}" %>
+						<%= check_box_tag 'skill_id[]', skill.id,
+										@user.skills.pluck(:id).include?(skill.id), 
+										id: "skill_#{skill.id}" %>
 						<%= label_tag "skill_#{skill.id}", skill.name, class:"skill" %><br>
 					<% end %>
 				</div>
