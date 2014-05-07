@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
 		authorize! :manage, @user
-		
+
 		respond_to do |format|
 			if @user.update_attributes(user_params)
 				format.html { redirect_to @user, notice: 'Account Updated Successfully' }
@@ -24,6 +24,12 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
+		@user = User.find(params[:id])
+		@user.destroy
+
+		respond_to do |format|
+			format.html { redirect_to root_path, notice: 'Removed User' }
+		end
 	end
 
 	private

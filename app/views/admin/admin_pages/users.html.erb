@@ -7,6 +7,7 @@
 			<th>Name</th>
 			<th>Email</th>
 			<th>Roles</th>
+			<th>Actions</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,6 +24,10 @@
 				</td>
 				<td>
 					<%= unordered_listify(user.roles.pluck(:name)) %>
+				</td>
+				<td>
+					<%= link_to "Edit", edit_user_path(user) %>
+					<%= link_to "Delete", user, method: :delete, data: { confirm: "You sure?" } %>
 				</td>
 			</tr>
 		<% end %>
