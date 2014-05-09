@@ -1,0 +1,195 @@
+@black: black;
+@dark-gray: #666666;
+@light-gray: #DDD;
+@very-light-gray: #F3F3F3;
+@dark-blue: #1F639D;
+@blue: #2A94D6;
+
+@radius: 4px;
+@spacing: 48px;
+
+body {
+  background-color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  color: @black;
+  font-size: 2em;
+}
+
+h2 {
+  color: @dark-gray;
+  font-size: 1.5em;
+  margin-top: 12px;
+}
+
+.header {
+  background: url('homepage-banner.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  height: 260px;
+
+  .tagline {
+    margin-top: 70px;
+  }
+
+  margin-bottom: @spacing;
+}
+
+.events,
+.organizations {
+  // logo
+  img {
+    width: 120px;
+    height: 120px;
+    border: 1px solid @light-gray;
+    padding: 25px;
+
+    -webkit-border-radius: @radius; 
+    -moz-border-radius: @radius; 
+    border-radius: @radius; 
+  }
+
+  h2 {
+    color: @blue;
+    font-size: 1.4em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+}
+
+.events .event,
+.organizations .organization {
+  margin-bottom: @spacing;
+}
+
+.filters {
+  h3 {
+    color: @dark-gray;
+    font-size: 1.1em;
+    font-weight: 400;
+    margin-top: 0;
+  }
+
+  .filter-group {
+    margin-bottom: @spacing;
+  }
+
+  label {
+    font-weight: 300;
+    margin-left: 3px;
+  }
+}
+
+// event show page
+.event-header,
+.organization-header {
+  background-color: @very-light-gray;
+  height: 160px;
+  margin-bottom: 100px;
+
+  .header-details {
+    margin-top: @spacing;
+
+    h1 {
+      margin-top: 0;
+    }
+
+    h2 {
+      color: @blue;
+      font-size: 1.4em;
+    }
+
+    // logo
+    img {
+      width: 180px;
+      height: 180px;
+      border: 1px solid @light-gray;
+      padding: 25px;
+      background-color: white;
+
+      -webkit-border-radius: @radius; 
+      -moz-border-radius: @radius; 
+      border-radius: @radius; 
+    }
+  }
+
+  .cta {
+    margin-top: 52px;
+  }
+
+  .social {
+    margin-top: 86px;
+
+    img {
+      border: 1px solid @light-gray;
+      border-radius: @radius;
+      padding: 0;
+      width: 34px;
+      height: 34px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.event,
+.organization {
+  .bold {
+    font-weight: 500;
+  }
+  
+  .row {
+    margin: 15px 0;
+  }
+}
+
+
+// sign up styles
+.sign-up-header,
+.sign-in-header {
+  background-color: @very-light-gray;
+  height: 160px;
+  margin-bottom: @spacing;
+
+  .tagline {
+    margin-top: 50px;
+  }
+}
+
+.sign-up,
+.sign-in {
+  label, input {
+    font-weight: 400;
+  }
+
+  label {
+    line-height: 3em;
+  }
+
+  // skills have checkboxes and need to be treated differently
+  div.skill {
+    margin: 10px 0;
+  }
+
+  label.skill {
+    margin-top: 0;
+  }
+
+  .skill {
+    line-height: 1.5em;
+  }
+
+  .devise-links {
+    margin-top: 40px;
+  }
+
+  margin-bottom: @spacing;
+}

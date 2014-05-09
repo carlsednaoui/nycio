@@ -1,0 +1,27 @@
+<div class="col-md-2 filters">
+  <div class="filter-group">
+    <h3>Volunteer Skills</h3>
+      <% @skills.each do |skill| %>
+      <%= check_box_tag(skill) %>
+      <%= label_tag(skill, skill.name) %><br>
+      <% end %>
+  </div>
+  
+  <div class="filter-group">
+    <h3>Attendee Age Range</h3>
+    - foo <br>
+    - bar <br>
+  </div>
+
+  <div class="filter-group">
+    <h3>Attendee Gender</h3>
+    - foo <br>
+    - bar <br>
+  </div>
+
+  <div class="filter-group">
+    <h3>Event Frequency</h3>
+    - foo <br>
+    - bar <br>
+  </div>
+</div>

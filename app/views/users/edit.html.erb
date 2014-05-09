@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 event">
+
+		<h2>Edit Profile</h2>
+
+		<%= form_for(@user) do |f| %>
+			<%= render 'layouts/error_messages', object: f.object %>
+
+	      <div class="form-group row">
+	        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+	        <div class="col-sm-5">
+	          <%= f.email_field :email, class:"form-control", id:"inputEmail", placeholder:"name@example.com", autofocus: true %>
+	        </div>
+	      </div>
+
+	      <div class="form-group row">
+	        <label for="first_name" class="col-sm-2 control-label">First Name</label>
+	        <div class="col-sm-5">
+	          <%= f.text_field :first_name, class:"form-control", id:"first_name", placeholder:"Joe" %>
+	        </div>
+	      </div>
+
+	      <div class="form-group row">
+	        <label for="last_name" class="col-sm-2 control-label">Last Name</label>
+	        <div class="col-sm-5">
+	          <%= f.text_field :last_name, class:"form-control", id:"last_name", placeholder:"Somebody" %>
+	        </div>
+	      </div>
+
+	      <div class="form-group row">
+	        <label for="birthdate" class="col-sm-2 control-label">Birthdate</label>
+	        <div class="col-sm-5">
+	          <%= f.date_field :birthdate, class:"form-control", id:"birthdate" %>
+	        </div>
+	      </div>
+
+	      <div class="form-group row">
+	        <label for="gender" class="col-sm-2 control-label">Gender</label>
+	        <div class="col-sm-5">
+      			<%= f.radio_button :gender, "male" %>
+	          <%= f.label :gender_male, "Male" %>
+      			<br>
+      			<%= f.radio_button :gender, "female" %>
+      			<%= f.label :gender_female, "Female" %>	
+	        </div>
+	      </div>
+
+			<div class="form-group row skill">
+				<label for="skills" class="col-sm-2 control-label skill">Skills</label>
+				<div class="col-sm-5">
+					<% Skill.all.each do |skill| %>
+						<%= check_box_tag 'skill_id[]', skill.id,
+										@user.skills.pluck(:id).include?(skill.id), 
+										id: "skill_#{skill.id}" %>
+						<%= label_tag "skill_#{skill.id}", skill.name, class:"skill" %><br>
+					<% end %>
+				</div>
+			</div>
+			
+			<%= f.submit "Save", class: "btn btn-primary btn-lg" %>
+		<% end %>	
+
+	</div>
+  </div>
+<div>
