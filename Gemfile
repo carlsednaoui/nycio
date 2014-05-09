@@ -56,4 +56,8 @@ group :test do
   gem 'shoulda-matchers'
 end
 
+# Used for heroku assets
+# https://devcenter.heroku.com/articles/rails-4-asset-pipeline
+gem 'rails_12factor', group: :production
+
 gem 'cancan'
