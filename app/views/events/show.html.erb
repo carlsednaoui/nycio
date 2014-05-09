@@ -12,7 +12,7 @@
         <!-- TODO: Clean this up -->
         <p><%= Occurrence.find_by_event_id(@event.id).start_time.strftime('%A, %b %d') %>: <%= Occurrence.find_by_event_id(@event.id).start_time.strftime('%I:%M %p') %> - <%= Occurrence.find_by_event_id(@event.id).end_time.strftime('%I:%M %p') %></p>
         
-        <div class="row">
+        <div class="row cta">
           <button type="button" class="btn btn-primary">VOLUNTEER</button>
           <button type="button" class="btn btn-default">ATTEND</button>
         </div>
