@@ -1,17 +1,48 @@
-<h2>Sign in</h2>
+<div class="sign-in-header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 tagline">
+        <h1>Volunteer Sign In</h1>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+<div class="container-fluid sign-up">
+  <div class="row">
+    
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-5">
+          <%= f.email_field :email, class:"form-control", id:"inputEmail", placeholder:"name@example.com", autofocus: true %>
+        </div>
+      </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+      <div class="form-group row">
+        <label for="password" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-5">
+          <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"password" %>
+        </div>
+      </div>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+      <% if devise_mapping.rememberable? -%>
+        <div class="form-group row">
+          <label for="skills" class="col-sm-2 control-label"></label>
+          <div class="col-sm-5">
+              <%= check_box_tag :remember_me %>
+              <%= label_tag :remember_me %><br>
+          </div>
+        </div>
+      <% end -%>
 
-<%= render "devise/shared/links" %>
+      <div><%= f.submit "Sign in", class: "btn btn-primary btn-lg" %></div>
+    <% end %>
+
+    <div class="devise-links">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
+
