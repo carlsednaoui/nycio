@@ -1,0 +1,55 @@
+<h1>This is where the users will be for admins</h1>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Skills</th>
+			<th>Organizations</th>
+			<th>Roles</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td>
+					<%= user.id %>
+				</td>
+				<td>
+					<%= link_to user.full_name, user %>
+				</td>
+				<td>
+					<%= user.email %>
+				</td>
+				<td>
+					<%= unordered_listify(user.skills.pluck(:name)) %>
+				</td>
+				<td>
+					<% if user.organizations.present? %>
+						<ul>
+							<% user.user_organizations.each do |uo| %>
+								<% if uo.manager? %>
+									<li><%= uo.organization.name %> <b>(Manager)</b></li>
+								<% else %>
+									<li><%= uo.organization.name %></li>
+								<% end %>
+							<% end %>
+						</ul>
+					<% else %>
+						None
+					<% end %>
+				</td>
+				<td>
+					<%= unordered_listify(user.roles.pluck(:name)) %>
+				</td>
+				<td>
+					<%= link_to "Edit", edit_user_path(user) %>
+					<%= link_to "Delete", user, method: :delete, data: { confirm: "You sure?" } %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

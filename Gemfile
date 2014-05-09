@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.1'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -38,3 +39,27 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem "therubyracer"
+gem "less-rails"
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'bootstrap3'
+
+gem 'devise'
+gem "rolify"
+
+# Quiet the asset pipeline https://github.com/evrone/quiet_assets
+gem 'quiet_assets', :group => :development
+
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+end
+
+# Used for heroku assets
+# https://devcenter.heroku.com/articles/rails-4-asset-pipeline
+gem 'rails_12factor', group: :production
+
+gem 'cancan'

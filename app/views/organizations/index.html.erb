@@ -1,0 +1,34 @@
+<div class="header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 tagline">
+        <h1>Active organizations</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- organizations info -->
+    <div class="col-md-9 organizations">
+      <% @organizations.each do |organization| %>
+        <div class="row organization">
+          <div class="col-md-3">
+            <!-- TODO: Replace with img url from db -->
+            <%= link_to image_tag("https://pbs.twimg.com/profile_images/2213868378/logo.png"), organization_path(organization) %>
+          </div>
+
+          <div class="col-md-6">
+            <h2><%= link_to organization.name, organization_path(organization) %></h2>
+            <p><%= organization.description %>
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+

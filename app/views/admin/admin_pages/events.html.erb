@@ -1,0 +1,42 @@
+<h1>This is where the events will be for admins</h1>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th><%= sortable "organization" %></th>
+			<th><%= sortable "name" %></th>
+			<th>Description</th>
+			<th>Occurrences</th>
+			<th>Recently Upcoming</th>
+			<th>Skills Required</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @events.each do |event| %>
+			<tr>
+				<td>
+					<%= event.id %>
+				</td>
+				<td>
+					<%= link_to event.organization.name, event.organization %>
+				</td>
+				<td>
+					<%= link_to event.name, event %>
+				</td>
+				<td>
+					<%= event.description %>
+				</td>
+				<td>
+					<%= event.occurrences.count %>
+				</td>
+				<td>
+					<%= upcoming_occurrence(event) %>
+				</td>
+				<td>
+					<%= unordered_listify(event.skills.pluck(:name)) %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

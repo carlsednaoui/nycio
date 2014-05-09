@@ -1,0 +1,46 @@
+<h1>This is where the organizations will be for admins</h1>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th><%= sortable "name" %></th>
+			<th>Description</th>
+			<th>Managers</th>
+			<th>Upcoming Events</th>
+			<th>Approved?</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @organizations.each do |organization| %>
+			<tr>
+				<td>
+					<%= organization.id %>
+				</td>
+				<td>
+					<%= link_to organization.name, organization %>
+				</td>
+				<td>
+					<%= organization.description %>
+				</td>
+				<td>
+					<% organization.manager_users.each do |user| %>
+						<p><%= link_to user.full_name, user if user %></p>
+					<% end %>
+				</td>
+				<td>
+					<%= organization_events_list(organization) %>
+				</td>
+				<td>
+					<%= organization.approved? %>
+				</td>
+				<td>
+					<%= link_to "Toggle Approval", admin_batch_actions_path(toggle_id: organization.id), :method => 'post' %>
+					<%= link_to "Edit", edit_organization_path(organization) %>
+					<%= link_to "Delete", organization, method: :delete, data: { confirm: "You sure?" } %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
