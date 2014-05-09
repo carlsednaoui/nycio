@@ -1,27 +1,84 @@
+<div class="organization-header">
+  <div class="container-fluid">
+    <div class="row header-details">
+      <div class="col-md-3">
+        <%= image_tag("https://pbs.twimg.com/profile_images/2213868378/logo.png") %>
+      </div>
+
+      <div class="col-md-9">
+        <h1><%= @organization.name %></h1>
+        <p><a href="http://www.coderdojonyc.com">http://www.coderdojonyc.com</a></p>
+
+        <div class="row social">
+          <a href="http://www.twitter.com/coderdojonyc"><%= image_tag("twitter-logo.png") %></a>
+          <a href="http://www.facebook.com/coderdojonyc"><%= image_tag("facebook-logo.png") %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12 event">
+    <!-- organization info -->
+    <div class="col-md-12 organization">
+      <div class="row">
+        <div class="col-md-3">
+          <p class="bold">About</p>
+        </div>
+        <div class="col-md-9">
+          <p><%= @organization.description %></p>
+        </div>
+      </div>
 
-		<h1><%= @organization.name %></h1>
+      <div class="row">
+        <div class="col-md-3">
+          <p class="bold">Demographic</p>
+        </div>
+        <!-- TODO: Get this from DB -->
+        <div class="col-md-9">
+          <p>ENTER DATA HERE</p>
+        </div>
+      </div>
 
-		<h2><%= @organization.description %></h2>
-	</div>
-  </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p class="bold">Program Types</p>
+        </div>
+        <!-- TODO: Get this from DB -->
+        <div class="col-md-9">
+          <p>ENTER DATA HERE</p>
+        </div>
+      </div>
 
-  <div class="row">
-    <div class="col-md-12 event">
-		<% @organization.events.each do |event| %>
-			<p><%= link_to event.name, event %></p>
-		<% end %>
-	</div>
-  </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p class="bold">Contacts</p>
+        </div>
+        <!-- TODO: Get this from DB -->
+        <div class="col-md-9">
+          <p>ENTER DATA HERE</p>
+        </div>
+      </div>
 
-	<% if can? :manage, @organization  %>
-		<br><br>
-		<div class="row">
-			<div class="col-md-12 event">
-				<p><%= link_to "Edit Organization", edit_organization_path(@organization) %></p>
-			</div>
-		</div>
-	<% end %>
-<div>
+      <div class="row">
+        <div class="col-md-12 event">
+        <h2>Upcoming events</h2>
+
+        <% @organization.events.each do |event| %>
+          <p><%= link_to event.name, event %></p>
+        <% end %>
+      </div>
+      </div>
+
+      <% if can? :manage, @organization  %>
+        <br><br>
+        <div class="row">
+          <div class="col-md-12 event">
+            <p><%= link_to "Edit Organization", edit_organization_path(@organization) %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>

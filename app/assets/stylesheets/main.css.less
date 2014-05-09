@@ -90,7 +90,8 @@ h2 {
 }
 
 // event show page
-.event-header {
+.event-header,
+.organization-header {
   background-color: @very-light-gray;
   height: 160px;
   margin-bottom: 100px;
@@ -120,9 +121,27 @@ h2 {
       border-radius: @radius; 
     }
   }
+
+  .cta {
+    margin-top: 52px;
+  }
+
+  .social {
+    margin-top: 86px;
+
+    img {
+      border: 1px solid @light-gray;
+      border-radius: @radius;
+      padding: 0;
+      width: 34px;
+      height: 34px;
+      margin-right: 10px;
+    }
+  }
 }
 
-.event {
+.event,
+.organization {
   .bold {
     font-weight: 500;
   }
