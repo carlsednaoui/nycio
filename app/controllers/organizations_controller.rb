@@ -2,7 +2,7 @@ class OrganizationsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @organizations = Organization.all.where(approved: true)
+    @organizations = Organization.where(approved: true)
   end
 
   def show
