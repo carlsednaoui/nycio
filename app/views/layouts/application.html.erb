@@ -40,14 +40,19 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
-    <%= render 'layouts/navbar' %>
-    <%= bootstrap_flash %>
-    <%= yield %>
-
+    <div id='wrap'>
+        <%= render 'layouts/navbar' %>
+        <%= bootstrap_flash %>
+        <%= yield %>
+        <div id='push'></div>
+    </div>
     <div id='footer'>
       <div class='container'>
-        <p class='text-muted pull-left'><%= Time.now.year %> &copy; </p>
-        <p class='text-muted pull-right'>Designed with love in NYC</p>
+          <div class='clear-fix'></div>
+        <div class='push-down'>
+            <p class='text-muted pull-left'><%= Time.now.year %> &copy; </p>
+            <p class='text-muted pull-right'>Designed with love in NYC</p>
+        </div>
       </div>
     </div>
   </body>
