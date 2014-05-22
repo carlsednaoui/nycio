@@ -24,6 +24,11 @@ FactoryGirl.define do
 	end
 
 	factory :user do
+    sequence(:first_name) { |n| "first_name#{n}" }
+    sequence(:last_name) { |n| "first_name#{n}" }
+    phone "123456789"
+    birthdate { 50.years.ago }
+    gender "male"
 		sequence(:email) { |n| "person_#{n}@example.com" }
 		password 			  'testingnycio'
 		password_confirmation 'testingnycio'
