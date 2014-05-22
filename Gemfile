@@ -64,3 +64,4 @@ end
 gem 'rails_12factor', group: :production
 
 gem 'cancan'
+gem 'kaminari'
