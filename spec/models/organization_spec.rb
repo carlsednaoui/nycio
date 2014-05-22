@@ -8,6 +8,5 @@ describe Organization do
 	it { should respond_to(:description) }
 
 	it { should have_many(:events) }
-	it { should have_many(:users) }
-  it { should belong_to :user}
+	it { should have_many(:users).through :user_organizations }
 end

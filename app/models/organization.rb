@@ -4,9 +4,6 @@ class Organization < ActiveRecord::Base
 	has_many :user_organizations, dependent: :destroy
 	has_many :users, through: :user_organizations
 
-  # a person can create and tentatively own an organization
-  belongs_to :user
-
 	def manager_users
 		self.users.where('user_organizations.manager IS true')
 	end
