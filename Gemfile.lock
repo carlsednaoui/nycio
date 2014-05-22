@@ -9,6 +9,14 @@ GIT
       rails (>= 3.1)
       railties (>= 3.1)
 
+GIT
+  remote: git@github.com:byroot/rails3_acts_as_paranoid.git
+  revision: 3e107ee27e6fccc2f5bbbffd83828fb899090d08
+  branch: rails4.0
+  specs:
+    acts_as_paranoid (0.4.1)
+      activerecord (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -174,6 +182,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_paranoid!
   cancan
   coffee-rails (~> 4.0.0)
   devise
