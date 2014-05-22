@@ -12,6 +12,7 @@
   <div class="row">
     <!-- organizations info -->
     <div class="col-md-9 organizations">
+
       <% @organizations.each do |organization| %>
         <div class="row organization">
           <div class="col-md-3">
@@ -26,6 +27,10 @@
           </div>
         </div>
       <% end %>
+
+    </div>
+    <div class='col-md-3'>
+      <%= link_to "New Organization", new_organization_path, class: 'btn btn-primary' %>
     </div>
 
   </div>
