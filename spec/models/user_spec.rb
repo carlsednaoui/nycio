@@ -11,7 +11,7 @@ describe User do
 	it { should respond_to(:phone) }
 	it { should respond_to(:gender) }
 
-	it { should have_many(:organizations) }
+	it { should have_many(:organizations).through :user_organizations }
 	it { should have_many(:skills) }
   it { should validate_presence_of :first_name }
   it { should validate_presence_of :last_name }
@@ -24,4 +24,5 @@ describe User do
 		@user.has_role?(:volunteer).should be_true
     @user.is_public?.should be_false
 	end
+
 end
