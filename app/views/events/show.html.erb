@@ -88,6 +88,11 @@
           <p><%= link_to "Edit Event", edit_event_path(@event) %></p>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-12 event">
+          <p><%= link_to "Delete Event", @event, method: :delete, data: { confirm: "You sure?" } %></p>
+        </div>
+      </div>
     <% end %>
 </div>
 
