@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
     														:password_confirmation,
     														:first_name,
     														:last_name,
-    														:birthdate) }
+    														:birthdate,
+                                :phone,
+                                :gender) }
   end
 end
