@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-	has_many :occurrences
+	has_many :occurrences, dependent: :destroy
 	has_many :event_skills, dependent: :destroy
 	has_many :skills, through: :event_skills
 
