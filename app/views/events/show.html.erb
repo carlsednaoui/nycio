@@ -69,6 +69,16 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-md-3">
+          <p class="bold">Skills</p>
+        </div>
+        <!-- TODO: MAYBE USE not the admin_helper method -->
+        <div class="col-md-9">
+          <%= unordered_listify(@event.skills.pluck(:name)) %>
+        </div>
+      </div>
+
     </div>
 
     <% if can? :manage, @event  %>

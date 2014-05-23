@@ -20,6 +20,12 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+        if skill_id_params.present?
+          skill_id_params.each do |skill_id|
+            EventSkill.find_or_create_by(event_id: @event.id, skill_id: skill_id)
+          end
+        end
+
         format.html { redirect_to root_path, notice: 'New Event added' }
       else
         format.html { render action: 'new' }
@@ -39,6 +45,16 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(event_params)
+        if skill_id_params.present?
+          original_array = @event.event_skills.pluck(:skill_id)
+          skill_id_params.each do |skill_id|
+            EventSkill.find_or_create_by(event_id: @event.id, skill_id: skill_id)
+          end
+          (original_array - skill_id_params).each do |skill_id|
+            EventSkill.where(event_id: @event.id, skill_id: skill_id)[0].destroy
+          end
+        end
+
         format.html { redirect_to @event, notice: 'Event Updated' }
       else
         format.html { render action: 'edit' }
@@ -59,5 +75,10 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :description, :organization_id)
+  end
+
+  def skill_id_params
+    int_array = params[:skill_id].collect{|i| i.to_i}
+    Skill.pluck(:id) & int_array == int_array ? int_array : []
   end
 end

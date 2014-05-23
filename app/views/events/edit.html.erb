@@ -10,7 +10,44 @@
 	<div class="row">
 		<div class="col-md-12 event">
 
-			<%= render 'form' %>
+		<%= form_for(@event) do |f| %>
+			<%= render 'layouts/error_messages', object: f.object %>
+			
+			<div class="form-group row">
+				<label for="inputName" class="col-sm-2 control-label">Name</label>
+				<div class="col-sm-5">
+					<%= f.text_field :name, class: "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="inputDescription" class="col-sm-2 control-label">Description</label>
+				<div class="col-sm-5">
+					<%= f.text_area :description, class: "form-control" %>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="inputOrganization" class="col-sm-2 control-label">Organization</label>
+				<div class="col-sm-5">
+					<%= f.collection_select :organization_id, @user_orgs, :id, :name, include_blank: true %>
+				</div>
+			</div>
+
+			<div class="form-group row skill">
+				<label for="skills" class="col-sm-2 control-label skill">Skills</label>
+				<div class="col-sm-5">
+					<% Skill.all.each do |skill| %>
+						<%= check_box_tag 'skill_id[]', skill.id,
+										@event.skills.pluck(:id).include?(skill.id), 
+										id: "skill_#{skill.id}" %>
+						<%= label_tag "skill_#{skill.id}", skill.name, class:"skill" %><br>
+					<% end %>
+				</div>
+			</div>
+
+			<div><%= f.submit "Save", class: 'btn btn-primary btn-lg' %></div>
+		<% end %>
 
 		</div>
 	</div>
