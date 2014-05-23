@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 
   def new
   	@event = Event.new
-  	@user_orgs = current_user.is_admin? ? Organization.all : current_user.manager_organizations
+  	@user_orgs = current_user.is_admin? ? Organization.order(:name) : current_user.manager_organizations
   end
 
   def create
