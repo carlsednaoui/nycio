@@ -11,9 +11,11 @@
 
         <!-- TODO: Clean this up -->
         <p>
-          <% @occurrences.each do |occurrence| %>
-            <%= occurrence.start_time.strftime('%A, %b %d') %>: <%= occurrence.start_time.strftime('%I:%M %p') %> - <%= occurrence.end_time.strftime('%I:%M %p') %>
-          <% end %>
+          <ul>
+            <% @occurrences.each do |occurrence| %>
+              <li><%= occurrence.start_time.strftime('%A, %b %d') %>: <%= occurrence.start_time.strftime('%I:%M %p') %> - <%= occurrence.end_time.strftime('%I:%M %p') %></li>
+            <% end %>
+          </ul>
         </p>
         
         <div class="row cta">
