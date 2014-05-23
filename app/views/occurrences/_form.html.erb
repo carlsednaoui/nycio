@@ -1,4 +1,5 @@
-<%= form_for(@occurrence) do |f| %>    
+<%= form_for(@occurrence) do |f| %>   
+    <%= render 'layouts/error_messages', object: f.object %>
 
     <div class="form-group row">
         <label for="inputEvent" class="col-sm-2 control-label">Event</label>
