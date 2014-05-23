@@ -10,4 +10,8 @@ describe Event do
 	it { should belong_to(:organization) }
 	it { should have_many(:occurrences) }
 	it { should have_many(:skills) }
+
+	it { should validate_presence_of :name }
+	it { should validate_presence_of :description }
+	it { should validate_presence_of :organization_id }
 end
