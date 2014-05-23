@@ -12,6 +12,8 @@ FactoryGirl.define do
 
 	factory :occurrence do
 		event
+		start_time Time.now
+		end_time Time.now
 	end
 
 	factory :organization do
