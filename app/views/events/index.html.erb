@@ -1,6 +1,19 @@
 <h1>Events</h1>
 
-<% @events.each do |event| %>
-	<h3><%= event.name %></h3>
-	<p><%= event.description %></p>
-<% end %>
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-9">
+
+		<% @events.each do |event| %>
+			<h3><%= event.name %></h3>
+			<p><%= event.description %></p>
+		<% end %>
+
+    </div>
+    <div class='col-md-3'>
+      <%= link_to "New Event", new_event_path, class: 'btn btn-primary' %>
+    </div>
+
+  </div>
+</div>
