@@ -6,7 +6,7 @@
     <div class="col-md-9">
 
 		<% @events.each do |event| %>
-			<h3><%= event.name %></h3>
+			<h3><%= link_to event.name, event %></h3>
 			<p><%= event.description %></p>
 		<% end %>
 

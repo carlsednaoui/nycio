@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 
   def show
   	@event = Event.find(params[:id])
+  	@occurrences = @event.occurrences
   end
 
   def new

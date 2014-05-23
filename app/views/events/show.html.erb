@@ -10,7 +10,11 @@
         <h2><%= link_to @event.organization.name, organization_path(@event.organization) %></h2>
 
         <!-- TODO: Clean this up -->
-        <p><%= Occurrence.find_by_event_id(@event.id).start_time.strftime('%A, %b %d') %>: <%= Occurrence.find_by_event_id(@event.id).start_time.strftime('%I:%M %p') %> - <%= Occurrence.find_by_event_id(@event.id).end_time.strftime('%I:%M %p') %></p>
+        <p>
+          <% @occurrences.each do |occurrence| %>
+            <%= occurrence.start_time.strftime('%A, %b %d') %>: <%= occurrence.start_time.strftime('%I:%M %p') %> - <%= occurrence.end_time.strftime('%I:%M %p') %>
+          <% end %>
+        </p>
         
         <div class="row cta">
           <button type="button" class="btn btn-primary">VOLUNTEER</button>
