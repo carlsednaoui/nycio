@@ -1,6 +1,7 @@
 class OccurrencesController < ApplicationController
 	def new
 		@occurrence = Occurrence.new
+		@user_events = current_user.is_admin? ? Event.order(:name) : current_user.manager_events
 	end
 
 	def create
@@ -24,6 +25,6 @@ class OccurrencesController < ApplicationController
 	private
 
 	def occurrence_params
-		params.require(:event).permit(:start_time, :end_time, :event_id)
+		params.require(:occurrence).permit(:start_time, :end_time, :event_id)
 	end
 end

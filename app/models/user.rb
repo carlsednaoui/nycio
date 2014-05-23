@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
     self.organizations.where('user_organizations.manager IS true')
   end
 
+  def manager_events
+    Event.where("events.organization_id IN (?)", self.manager_organizations.pluck(:id))
+  end
+
   private
     def set_volunteer_role
       self.add_role :volunteer

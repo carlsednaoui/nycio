@@ -1,0 +1,28 @@
+<%= form_for(@occurrence) do |f| %>    
+
+    <div class="form-group row">
+        <label for="inputEvent" class="col-sm-2 control-label">Event</label>
+        <div class="col-sm-5">
+            <%= f.collection_select :event_id, @user_events, :id, :name, include_blank: true %>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label for="skills" class="col-sm-2 control-label skill">Start Time</label>
+        <div class="col-sm-5">
+          <%= datetime_local_field(:occurrence, :start_time) %>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="skills" class="col-sm-2 control-label skill">End Time</label>
+        <div class="col-sm-5">
+          <%= datetime_local_field(:occurrence, :end_time) %>
+        </div>
+    </div>
+
+    <%= params[:event_id] %>
+
+    <div><%= f.submit "Save", class: 'btn btn-primary btn-lg' %></div>
+<% end %>
