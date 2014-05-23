@@ -45,6 +45,12 @@ class EventsController < ApplicationController
   end
 
   def destroy
+  	@event = Event.find(params[:id])
+    @event.destroy
+
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Removed Event' }
+    end
   end
 
   private
