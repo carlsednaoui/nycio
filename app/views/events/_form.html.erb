@@ -18,7 +18,7 @@
 	<div class="form-group row">
 		<label for="inputOrganization" class="col-sm-2 control-label">Organization</label>
 		<div class="col-sm-5">
-			<%= f.collection_select :organization_id, Organization.order(:name), :id, :name, include_blank: true %>
+			<%= f.collection_select :organization_id, @user_orgs, :id, :name, include_blank: true %>
 		</div>
 	</div>
 
