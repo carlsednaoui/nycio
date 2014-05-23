@@ -29,6 +29,7 @@ class EventsController < ApplicationController
         format.html { redirect_to root_path, notice: 'New Event added' }
       else
         format.html { render action: 'new' }
+        @user_orgs = current_user.is_admin? ? Organization.order(:name) : current_user.manager_organizations
       end
     end
   end
@@ -58,6 +59,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event, notice: 'Event Updated' }
       else
         format.html { render action: 'edit' }
+        @user_orgs = current_user.is_admin? ? Organization.order(:name) : current_user.manager_organizations
       end
     end
   end

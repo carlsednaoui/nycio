@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :organizations
   resources :events
   resources :users, only: [:show, :edit, :update, :destroy] 
+  resources :occurrences
 
 	namespace :admin do
 		get '/organizations', to: 'admin_pages#organizations'
