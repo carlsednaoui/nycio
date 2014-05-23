@@ -1,13 +1,17 @@
-    <div class="form-group row">
-        <label for="skills" class="col-sm-2 control-label skill">Start Time</label>
-        <div class="col-sm-5">
-          <%= datetime_local_field(:occurrence, :start_time) %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 event">
+
+            <h1>New Occurrence</h1>
+
         </div>
     </div>
 
-    <div class="form-group row">
-        <label for="skills" class="col-sm-2 control-label skill">End Time</label>
-        <div class="col-sm-5">
-          <%= datetime_local_field(:occurrence, :end_time) %>
+    <div class="row">
+        <div class="col-md-12 event">
+
+            <%= render 'form' %>
+
         </div>
     </div>
+</div>
