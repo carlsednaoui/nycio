@@ -10,6 +10,7 @@
 			<th>Occurrences</th>
 			<th>Recently Upcoming</th>
 			<th>Skills Required</th>
+			<th>Actions</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -35,6 +36,10 @@
 				</td>
 				<td>
 					<%= unordered_listify(event.skills.pluck(:name)) %>
+				</td>
+				<td>
+					<%= link_to "Edit", edit_event_path(event) %>
+					<%= link_to "Delete", event, method: :delete, data: { confirm: "You sure?" } %>
 				</td>
 			</tr>
 		<% end %>

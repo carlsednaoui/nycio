@@ -28,6 +28,23 @@ class EventsController < ApplicationController
   end
 
   def edit
+  	@event = Event.find(params[:id])
+  	@user_orgs = current_user.is_admin? ? Organization.order(:name) : current_user.manager_organizations
+  end
+
+  def update
+    @event = Event.find(params[:id])
+
+    respond_to do |format|
+      if @event.update_attributes(event_params)
+        format.html { redirect_to @event, notice: 'Event Updated' }
+      else
+        format.html { render action: 'edit' }
+      end
+    end
+  end
+
+  def destroy
   end
 
   private
