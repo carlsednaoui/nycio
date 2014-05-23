@@ -11,6 +11,10 @@ class Ability
       can :manage, user
       can :manage, user.manager_organizations
       can :read, :all
+
+      user.manager_organizations.each do |org|
+        can :manage, org.events
+      end
     end
 
     # The first argument to `can` is the action you are giving the user

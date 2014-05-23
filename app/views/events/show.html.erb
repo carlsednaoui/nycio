@@ -70,6 +70,15 @@
       </div>
 
     </div>
+
+    <% if can? :manage, @event  %>
+      <br><br>
+      <div class="row">
+        <div class="col-md-12 event">
+          <p><%= link_to "Edit Event", edit_event_path(@event) %></p>
+        </div>
+      </div>
+    <% end %>
 </div>
 
 
