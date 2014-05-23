@@ -4,4 +4,6 @@ class Event < ActiveRecord::Base
 	has_many :skills, through: :event_skills
 
 	belongs_to :organization
+
+	validates :name, :description, :organization_id, presence: true
 end
