@@ -30,10 +30,12 @@ class EventsController < ApplicationController
   def edit
   	@event = Event.find(params[:id])
   	@user_orgs = current_user.is_admin? ? Organization.order(:name) : current_user.manager_organizations
+  	authorize! :manage, @event
   end
 
   def update
     @event = Event.find(params[:id])
+    authorize! :manage, @event
 
     respond_to do |format|
       if @event.update_attributes(event_params)
