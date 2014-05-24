@@ -63,15 +63,17 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-12 event">
-        <h2>Upcoming events</h2>
+      <% if @organization.events.length > 0 %>
+        <div class="row">
+          <div class="col-md-12 event">
+            <h2>Upcoming events</h2>
 
-        <% @organization.events.each do |event| %>
-          <p><%= link_to event.name, event %></p>
-        <% end %>
-      </div>
-      </div>
+            <% @organization.events.each do |event| %>
+              <p><%= link_to event.name, event %></p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
 
       <% if can? :manage, @organization  %>
         <br><br>
