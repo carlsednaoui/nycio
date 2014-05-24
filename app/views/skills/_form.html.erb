@@ -1,0 +1,12 @@
+<%= form_for(@skill) do |f| %>
+	<%= render 'layouts/error_messages', object: f.object %>
+	
+	<div class="form-group row">
+		<label for="inputName" class="col-sm-2 control-label">Name</label>
+		<div class="col-sm-5">
+			<%= f.text_field :name, class: "form-control" %>
+		</div>
+	</div>
+
+	<div><%= f.submit "Save", class: 'btn btn-primary btn-lg' %></div>
+<% end %>
