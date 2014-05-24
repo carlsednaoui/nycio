@@ -29,6 +29,10 @@
 
            <!-- TODO: Clean this up -->
            <p><%= Occurrence.find_by_event_id(event.id).start_time.strftime('%A, %b %d') %>: <%= Occurrence.find_by_event_id(event.id).start_time.strftime('%I:%M %p') %> - <%= Occurrence.find_by_event_id(event.id).end_time.strftime('%I:%M %p') %></p>
+
+            <p>
+              <%= unordered_listify(event.skills.pluck(:name)) %>
+            </p>
           </div>
         </div>
       <% end %>
