@@ -18,6 +18,15 @@ class SkillsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@skill = Skill.find(params[:id])
+		@skill.destroy
+
+		respond_to do |format|
+			format.html { redirect_to admin_skills_path, notice: 'Removed Skill' }
+		end
+	end
+
 	private
 
 	def skill_params 
