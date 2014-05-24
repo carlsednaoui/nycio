@@ -66,6 +66,7 @@ class EventsController < ApplicationController
 
   def destroy
   	@event = Event.find(params[:id])
+    authorize! :manage, @event
     @event.destroy
 
     respond_to do |format|
