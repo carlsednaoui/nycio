@@ -7,6 +7,7 @@
 		<tr>
 			<th>ID</th>
 			<th>Skill</th>
+			<th>Actions</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -14,6 +15,7 @@
 			<tr>
 				<td><%= skill.id %></td>
 				<td><%= skill.name %></td>
+				<td><%= link_to "Delete", skill, method: :delete, data: { confirm: "You sure?" } %></td>
 			</tr>
 		<% end %>
 	</tbody>
