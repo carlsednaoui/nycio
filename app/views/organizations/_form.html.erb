@@ -15,5 +15,42 @@
 		</div>
 	</div>
 
+	<div class="form-group row">
+		<label for="twitterUrl" class="col-sm-2 control-label">Twitter URL</label>
+		<div class="col-sm-5">
+			<%= f.text_field :twitter_url, class: "form-control" %>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="facebookUrl" class="col-sm-2 control-label">Facebook URL</label>
+		<div class="col-sm-5">
+			<%= f.text_field :facebook_url, class: "form-control" %>
+		</div>
+	</div>
+
+
+	<div class="form-group row">
+		<label for="contactName" class="col-sm-2 control-label">Contact Name</label>
+		<div class="col-sm-5">
+			<%= f.text_field :contact_name, class: "form-control" %>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="contactEmail" class="col-sm-2 control-label">Contact Email</label>
+		<div class="col-sm-5">
+			<%= f.text_field :contact_email, class: "form-control" %>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label for="contactPhone" class="col-sm-2 control-label">Contact Phone</label>
+		<div class="col-sm-5">
+			<%= f.text_field :contact_phone, class: "form-control" %>
+		</div>
+	</div>
+
+
 	<div><%= f.submit "Save", class: 'btn btn-primary btn-lg' %></div>
 <% end %>
