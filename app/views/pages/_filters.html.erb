@@ -1,27 +1,17 @@
-<div class="col-md-2 filters">
-  <div class="filter-group">
-    <h3>Volunteer Skills</h3>
-      <% @skills.each do |skill| %>
-      <%= check_box_tag(skill) %>
-      <%= label_tag(skill, skill.name) %><br>
-      <% end %>
-  </div>
-  
-  <div class="filter-group">
-    <h3>Attendee Age Range</h3>
-    - foo <br>
-    - bar <br>
+<%= form_tag root_path, :method => 'get' do %> 
+  <div class="col-md-2 filters">
+    <div class="filter-group">
+      <h3>Volunteer Skills</h3>
+        <% Skill.all.each do |skill| %>
+          <%= check_box_tag 'skill_id[]', 
+                            skill.id, 
+                            (params[:skill_id].include?(skill.id.to_s) if params[:skill_id]), 
+                            id: "skill_#{skill.id}" %>
+          <%= label_tag "skill_#{skill.id}", skill.name, class:"skill" %><br>
+        <% end %>
+    </div>
+
+    <div><%= submit_tag "Sort", class: 'btn btn-primary btn-lg' %></div>
   </div>
 
-  <div class="filter-group">
-    <h3>Attendee Gender</h3>
-    - foo <br>
-    - bar <br>
-  </div>
-
-  <div class="filter-group">
-    <h3>Event Frequency</h3>
-    - foo <br>
-    - bar <br>
-  </div>
-</div>
+<% end %>
