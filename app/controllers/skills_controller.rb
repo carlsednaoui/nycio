@@ -1,4 +1,7 @@
 class SkillsController < ApplicationController
+	before_filter :authenticate_user!
+	before_action :run_authorize
+
 	def new
 		@skill = Skill.new
 	end
@@ -19,5 +22,9 @@ class SkillsController < ApplicationController
 
 	def skill_params 
 		params.require(:skill).permit(:name)
+	end
+
+	def run_authorize
+		authorize! :manage, :all
 	end
 end
