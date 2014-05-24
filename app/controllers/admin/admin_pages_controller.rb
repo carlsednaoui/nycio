@@ -31,6 +31,20 @@ module Admin
 			@users = User.all
 		end
 
+		def adminify
+			if params[:user_id].present? && params[:user_id].to_i != 0
+				if User.find(params[:user_id]).has_role? :admin
+					User.find(params[:user_id]).remove_role "admin"
+				else
+					User.find(params[:user_id]).add_role "admin"
+				end
+
+				respond_to do |format|
+					format.html { redirect_to admin_users_path, notice: 'Admin Toggled' }
+				end
+			end
+		end
+
 		private
 
 		def run_authorize
