@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
 		joins(:organization).where("organizations.approved" => true)
 	end
 
-	def self.with_occurrences
-		includes(:occurrences).where("occurrences.event_id IS NOT NULL").references(:occurrences)
+	def self.with_future_occurrences
+		includes(:occurrences).where("occurrences.start_time > ?", Time.now).references(:occurrences)
 	end
 end
