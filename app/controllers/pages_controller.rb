@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @events = Event.includes(:occurrences).where("occurrences.event_id IS NOT NULL").references(:occurrences)
+    @events = Event.from_approved_orgs.with_occurrences
     @skills = Skill.all
   end
 end

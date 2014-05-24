@@ -6,4 +6,12 @@ class Event < ActiveRecord::Base
 	belongs_to :organization
 
 	validates :name, :description, :organization_id, presence: true
+
+	def self.from_approved_orgs
+		joins(:organization).where("organizations.approved" => true)
+	end
+
+	def self.with_occurrences
+		includes(:occurrences).where("occurrences.event_id IS NOT NULL").references(:occurrences)
+	end
 end
