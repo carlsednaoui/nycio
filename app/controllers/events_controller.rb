@@ -26,7 +26,7 @@ class EventsController < ApplicationController
           end
         end
 
-        format.html { redirect_to root_path, notice: 'New Event added' }
+        format.html { redirect_to new_occurrence_path, notice: 'New Event added' }
       else
         format.html { render action: 'new' }
         @user_orgs = current_user.is_admin? ? Organization.order(:name) : current_user.manager_organizations
