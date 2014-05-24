@@ -45,6 +45,10 @@ module Admin
 			end
 		end
 
+		def skills
+			@skills = Skill.all
+		end
+
 		private
 
 		def run_authorize

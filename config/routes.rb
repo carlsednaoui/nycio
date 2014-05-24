@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   resources :events
   resources :users, only: [:show, :edit, :update, :destroy] 
   resources :occurrences
+  resources :skills, only: [:new, :create, :edit, :update, :destroy]
 
 	namespace :admin do
 		get '/organizations', to: 'admin_pages#organizations'
 		get '/events', to: 'admin_pages#events'
 		get '/users', to: 'admin_pages#users'
+		get '/skills', to: 'admin_pages#skills'
 		post '/batch_actions', to: 'admin_pages#batch_actions'
 		post '/adminify', to: 'admin_pages#adminify'
 	end
