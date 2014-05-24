@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 		get '/events', to: 'admin_pages#events'
 		get '/users', to: 'admin_pages#users'
 		post '/batch_actions', to: 'admin_pages#batch_actions'
+		post '/adminify', to: 'admin_pages#adminify'
 	end
 
 end

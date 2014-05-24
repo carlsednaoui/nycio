@@ -46,6 +46,7 @@
 					<%= unordered_listify(user.roles.pluck(:name)) %>
 				</td>
 				<td>
+					<%= link_to "Adminify", admin_adminify_path(user_id: user.id), :method => 'post' %>
 					<%= link_to "Edit", edit_user_path(user) %>
 					<%= link_to "Delete", user, method: :delete, data: { confirm: "You sure?" } %>
 				</td>
