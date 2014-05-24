@@ -9,13 +9,8 @@
         <h1><%= @event.name %></h1>
         <h2><%= link_to @event.organization.name, organization_path(@event.organization) %></h2>
 
-        <!-- TODO: Clean this up -->
         <p>
-          <ul>
-            <% @occurrences.each do |occurrence| %>
-              <li><%= occurrence.start_time.strftime('%A, %b %d') %>: <%= occurrence.start_time.strftime('%I:%M %p') %> - <%= occurrence.end_time.strftime('%I:%M %p') %></li>
-            <% end %>
-          </ul>
+          <%= @occurrences.first.start_time.strftime('%A, %b %d') %>: <%= @occurrences.first.start_time.strftime('%I:%M %p') %> - <%= @occurrences.first.end_time.strftime('%I:%M %p') %>
         </p>
         
         <div class="row cta">
@@ -81,6 +76,18 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-md-3">
+          <p class="bold">All event occurences</p>
+        </div>
+        <div class="col-md-9">
+          <ul>
+          <% @occurrences.each do |occurrence| %>
+            <li><%= occurrence.start_time.strftime('%A, %b %d') %>: <%= occurrence.start_time.strftime('%I:%M %p') %> - <%= occurrence.end_time.strftime('%I:%M %p') %></li>
+          <% end %>
+        </ul>
+        </div>
+      </div>
     </div>
 
     <% if can? :manage, @event  %>
