@@ -1,0 +1,18 @@
+<h1>This is where the users will be for admins</h1>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Skill</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @skills.each do |skill| %>
+			<tr>
+				<td><%= skill.id %></td>
+				<td><%= skill.name %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
