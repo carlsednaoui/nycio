@@ -22,7 +22,7 @@ FactoryGirl.define do
 	end
 
 	factory :skill do
-
+		sequence(:name) { |n| "name #{n}" }
 	end
 
 	factory :user do
