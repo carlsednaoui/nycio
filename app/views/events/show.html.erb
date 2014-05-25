@@ -9,9 +9,11 @@
         <h1><%= @event.name %></h1>
         <h2><%= link_to @event.organization.name, organization_path(@event.organization) %></h2>
 
+        <% if @occurrences.length > 0 %>
         <p>
           <%= @occurrences.first.start_time.strftime('%A, %b %d') %>: <%= @occurrences.first.start_time.strftime('%I:%M %p') %> - <%= @occurrences.first.end_time.strftime('%I:%M %p') %>
         </p>
+        <% end %>
         
         <div class="row cta">
           <button type="button" class="btn btn-primary">VOLUNTEER</button>
@@ -41,9 +43,11 @@
           <p class="bold">Address</p>
         </div>
         <div class="col-md-9">
-          <p><%= @event.occurrences.first.address %></p>
-          <p><%= @event.occurrences.first.city %>, <%= @event.occurrences.first.state %> <%= @event.occurrences.first.zipcode %></p>
-          <p><%= @event.occurrences.first.special_instructions %></p>
+          <% if @occurrences.length > 0 %>
+            <p><%= @occurrences.first.address %></p>
+            <p><%= @occurrences.first.city %>, <%= @occurrences.first.state %> <%= @occurrences.first.zipcode %></p>
+            <p><%= @occurrences.first.special_instructions %></p>
+          <% end %>
         </div>
       </div>
 

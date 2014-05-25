@@ -1,18 +1,22 @@
-<h1>Events</h1>
-
 <div class="container-fluid">
   <div class="row">
+    <h1>Events</h1>
 
-    <div class="col-md-9">
-
+    <div class="col-md-8">
 		<% @events.each do |event| %>
 			<h3><%= link_to event.name, event %></h3>
 			<p><%= event.description %></p>
+
+      <% event.occurrences.each do |occurrence| %>
+        <li><%= occurrence.start_time.strftime('%A, %b %d') %></li>
+      <% end %>
+
 		<% end %>
 
     </div>
-    <div class='col-md-3'>
+    <div class='col-md-4'>
       <%= link_to "New Event", new_event_path, class: 'btn btn-primary' %>
+      <%= link_to "New Occurrence", new_occurrence_path, class: 'btn btn-default' %>
     </div>
 
   </div>
