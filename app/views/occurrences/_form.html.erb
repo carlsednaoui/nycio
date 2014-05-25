@@ -8,18 +8,52 @@
         </div>
     </div>
 
-
     <div class="form-group row">
-        <label for="skills" class="col-sm-2 control-label skill">Start Time</label>
+        <label for="startTime" class="col-sm-2 control-label skill">Start Time</label>
         <div class="col-sm-5">
           <%= datetime_local_field(:occurrence, :start_time) %>
         </div>
     </div>
 
     <div class="form-group row">
-        <label for="skills" class="col-sm-2 control-label skill">End Time</label>
+        <label for="endTime" class="col-sm-2 control-label skill">End Time</label>
         <div class="col-sm-5">
           <%= datetime_local_field(:occurrence, :end_time) %>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="address" class="col-sm-2 control-label">Address</label>
+        <div class="col-sm-5">
+            <%= f.text_field :address, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="city" class="col-sm-2 control-label">City</label>
+        <div class="col-sm-5">
+            <%= f.text_field :city, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="state" class="col-sm-2 control-label">State</label>
+        <div class="col-sm-5">
+            <%= f.text_field :state, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="zipcode" class="col-sm-2 control-label">Zip code</label>
+        <div class="col-sm-5">
+            <%= f.text_field :zipcode, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="specialInstruction" class="col-sm-2 control-label">Special instructions</label>
+        <div class="col-sm-5">
+            <%= f.text_area :special_instructions, class: "form-control" %>
         </div>
     </div>
 

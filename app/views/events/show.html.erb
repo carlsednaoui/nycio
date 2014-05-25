@@ -38,6 +38,17 @@
 
       <div class="row">
         <div class="col-md-3">
+          <p class="bold">Address</p>
+        </div>
+        <div class="col-md-9">
+          <p><%= @event.occurrences.first.address %></p>
+          <p><%= @event.occurrences.first.city %>, <%= @event.occurrences.first.state %> <%= @event.occurrences.first.zipcode %></p>
+          <p><%= @event.occurrences.first.special_instructions %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
           <p class="bold">Volunteers needed</p>
         </div>
         <!-- TODO: Get this from DB -->
