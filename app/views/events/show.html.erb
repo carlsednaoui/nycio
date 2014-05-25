@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row header-details">
       <div class="col-md-3">
-        <%= link_to image_tag("https://pbs.twimg.com/profile_images/2213868378/logo.png"), organization_path(@event.organization) %>
+        <%= link_to image_tag(@event.organization.image_url), organization_path(@event.organization) %>
       </div>
 
       <div class="col-md-9">
