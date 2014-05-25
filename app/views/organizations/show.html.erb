@@ -68,7 +68,7 @@
           <div class="col-md-12 event">
             <h2>Upcoming events</h2>
 
-            <% @organization.events.each do |event| %>
+            <% @events.each do |event| %>
               <p><%= link_to event.name, event %></p>
             <% end %>
           </div>
