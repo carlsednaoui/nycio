@@ -28,6 +28,6 @@ class OccurrencesController < ApplicationController
 	private
 
 	def occurrence_params
-		params.require(:occurrence).permit(:start_time, :end_time, :event_id)
+		params.require(:occurrence).permit(:start_time, :end_time, :event_id, :address, :city, :state, :zipcode, :special_instructions)
 	end
 end
