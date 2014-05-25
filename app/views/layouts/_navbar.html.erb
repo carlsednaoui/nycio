@@ -15,7 +15,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Organizations', organizations_path %></li>
-        <li><%= link_to 'Events', events_path %></li>
         <% if signed_in? %>
           <%= render 'layouts/dropdown' %>
         <% else %>
