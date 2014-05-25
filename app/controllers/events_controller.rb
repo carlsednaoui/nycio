@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-  	@events = Event.with_future_occurrences
+    @events = current_user.is_admin? ? Event.order(:name) : current_user.manager_events
   end
 
   def show
