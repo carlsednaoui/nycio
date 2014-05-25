@@ -17,7 +17,7 @@
         <div class="row event">
           <div class="col-md-3">
             <!-- TODO: Replace with img url from db -->
-            <%= link_to image_tag("https://pbs.twimg.com/profile_images/2213868378/logo.png"), event_path(event) %>
+            <%= link_to image_tag(event.organization.image_url), event_path(event) %>
           </div>
 
           <div class="col-md-6">
@@ -25,7 +25,7 @@
             <h2><%= link_to event.name, event_path(event) %></h2>
 
            <!-- TODO: Add location to occurence and update this -->
-           <p><%= link_to "New York Public Library", event_path(event) %></p>
+           <p><%= link_to event.occurrences.first.address, event_path(event) %></p>
 
            <!-- TODO: Clean this up -->
            <p><%= Occurrence.find_by_event_id(event.id).start_time.strftime('%A, %b %d') %>: <%= Occurrence.find_by_event_id(event.id).start_time.strftime('%I:%M %p') %> - <%= Occurrence.find_by_event_id(event.id).end_time.strftime('%I:%M %p') %></p>
