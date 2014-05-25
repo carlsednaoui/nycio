@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
     														:last_name,
     														:birthdate,
                                 :phone,
-                                :gender) }
+                                :gender,
+                                :help_build) }
   end
 end
