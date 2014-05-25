@@ -7,6 +7,7 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
+    @events = @organization.events.with_future_occurrences
   end
 
   def new
