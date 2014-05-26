@@ -11,7 +11,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	private
 
 	def skill_id_params
-		int_array = params[:skill_id].collect{|i| i.to_i}
-		Skill.pluck(:id) & int_array == int_array ? int_array : []
+		if params[:skill_id]
+			int_array = params[:skill_id].collect{|i| i.to_i}
+			Skill.pluck(:id) & int_array == int_array ? int_array : []
+		end
 	end
 end
