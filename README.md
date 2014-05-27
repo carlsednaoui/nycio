@@ -1,11 +1,15 @@
 # NYC.IO
 
+
+{<img src="https://coveralls.io/repos/carlsednaoui/nycio/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/carlsednaoui/nycio]
+
+
 Interested in helping out? We'd love your help building this platform!
 
 [User stories](https://docs.google.com/a/thinkful.com/document/d/1S0ICy4SJa5wfy8_33E2P-pu_Es-jCySnCcmWwaYSqIs/edit) and [designs](https://docs.google.com/a/thinkful.com/file/d/0Bwa0eIBu4SzTSVRNY3hwMEgya00/edit).
 
 
-Getting started:    
+Getting started:
 - Clone the project
 - Launch [postgres](http://postgresapp.com/)
 - Run `rake db:create`
