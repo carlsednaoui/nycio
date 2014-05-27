@@ -4,12 +4,12 @@
     <!-- <li><%= link_to "Profile", current_user %></li> -->
     <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
     <li class="divider"></li>
-    
+
     <% if current_user.manager_organizations.present? %>
       <% current_user.manager_organizations.each do |org| %>
         <li><%= link_to org.name, org %></li>
-        <li><%= link_to 'all my events', events_path %></li>
       <% end %>
+        <li><%= link_to 'All my events', events_path %></li>
       <li class="divider"></li>
     <% end %>
 
@@ -20,7 +20,7 @@
       <li><%= link_to "Admin Skills", admin_skills_path %></li>
       <li class="divider"></li>
     <% end %>
-    
+
     <li>
       <%= link_to destroy_user_session_path, method: :delete do %>
         <span class='fa fa-sign-out'></span>
