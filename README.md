@@ -1,9 +1,7 @@
 # NYC.IO
 
 
-[![Coverage Status](https://coveralls.io/repos/carlsednaoui/nycio/badge.png)](https://coveralls.io/r/carlsednaoui/nycio)
-
-[![Build Status](https://travis-ci.org/carlsednaoui/nycio.svg?branch=master)](https://travis-ci.org/carlsednaoui/nycio)
+[![Coverage Status](https://coveralls.io/repos/carlsednaoui/nycio/badge.png)](https://coveralls.io/r/carlsednaoui/nycio) [![Build Status](https://travis-ci.org/carlsednaoui/nycio.svg?branch=master)](https://travis-ci.org/carlsednaoui/nycio)
 
 Interested in helping out? We'd love your help building this platform!
 
