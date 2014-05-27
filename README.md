@@ -1,8 +1,9 @@
 # NYC.IO
 
 
-{<img src="https://coveralls.io/repos/carlsednaoui/nycio/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/carlsednaoui/nycio]
+[![Coverage Status](https://coveralls.io/repos/carlsednaoui/nycio/badge.png)](https://coveralls.io/r/carlsednaoui/nycio)
 
+[![Build Status](https://travis-ci.org/carlsednaoui/nycio.svg?branch=master)](https://travis-ci.org/carlsednaoui/nycio)
 
 Interested in helping out? We'd love your help building this platform!
 
