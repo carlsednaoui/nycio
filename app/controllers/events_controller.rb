@@ -11,26 +11,35 @@ class EventsController < ApplicationController
   end
 
   def new
-  	@event = Event.new
   	@user_orgs = current_user.is_admin? ? Organization.order(:name) : current_user.manager_organizations
+    if @user_orgs.exists?
+      @event = Event.new
+    else
+      redirect_to root_path, alert: "You can't create an event unless you join an organization or create one."
+    end
   end
 
   def create
-    @event = Event.new(event_params)
+    user_orgs = current_user.is_admin? ? Organization.order(:name) : current_user.manager_organizations
+    if user_orgs.exists?
+      @event = Event.new(event_params)
 
-    respond_to do |format|
-      if @event.save
-        if skill_id_params.present?
-          skill_id_params.each do |skill_id|
-            EventSkill.find_or_create_by(event_id: @event.id, skill_id: skill_id)
+      respond_to do |format|
+        if @event.save
+          if skill_id_params.present?
+            skill_id_params.each do |skill_id|
+              EventSkill.find_or_create_by(event_id: @event.id, skill_id: skill_id)
+            end
           end
-        end
 
-        format.html { redirect_to new_occurrence_path, notice: 'New Event added' }
-      else
-        format.html { render action: 'new' }
-        @user_orgs = current_user.is_admin? ? Organization.order(:name) : current_user.manager_organizations
+          format.html { redirect_to new_occurrence_path, notice: 'New Event added' }
+        else
+          format.html { render action: 'new' }
+          @user_orgs = current_user.is_admin? ? Organization.order(:name) : current_user.manager_organizations
+        end
       end
+    else
+      redirect_to root_path, alert: "You don't have permission to create an event. Contact administrator."
     end
   end
 
