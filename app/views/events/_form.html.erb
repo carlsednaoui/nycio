@@ -1,6 +1,6 @@
 <%= form_for(@event) do |f| %>
 	<%= render 'layouts/error_messages', object: f.object %>
-	
+
 	<div class="form-group row">
 		<label for="inputName" class="col-sm-2 control-label">Name</label>
 		<div class="col-sm-5">
@@ -25,12 +25,46 @@
     <div class="form-group row skill">
         <label for="skills" class="col-sm-2 control-label skill">Skills</label>
         <div class="col-sm-5">
+        <% if Skill.exists? %>
           <% Skill.all.each do |skill| %>
             <%= check_box_tag 'skill_id[]', skill.id, false, id: "skill_#{skill.id}" %>
             <%= label_tag "skill_#{skill.id}", skill.name, class:"skill" %><br>
           <% end %>
+      <% else %>
+        <span class='label label-info'>There are no skills. Please add some</span>
+      <% end %>
         </div>
     </div>
 
 	<div><%= f.submit "Save", class: 'btn btn-primary btn-lg' %></div>
+<% end %>
+
+
+<% if !Skill.exists? %>
+<hr>
+<span class='label label-danger'>Missing skills</span>
+        <button class='btn btn-default btn-lg' data-toggle='modal' data-target='#skillsModal'>Add skill</button>
+ <!-- skills modal -->
+        <div class='modal fade' id='skillsModal' tabindex='-1' role='dialog' aria-labelledby='skillsModalLabel' aria-hidden='true'>
+            <div class='modal-dialog modal-lg'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                        <h4 class='modal-title' id='skillsModalLabel'>
+                            Add new skill
+                        </h4>
+                    </div>
+                    <div class='modal-body'>
+                        <%= simple_form_for Skill.new, remote: true, url: skills_url do |f| %>
+                            <%= f.input :name, placeholder: 'Name of skill' %>
+                    </div>
+                    <div class='modal-footer'>
+                        <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                        <%= f.button :submit, "Save", class: 'btn btn-primary' %>
+                    </div>
+                        <% end %>
+
+                </div>
+            </div>
+        </div>
 <% end %>
