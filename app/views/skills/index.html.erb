@@ -1,0 +1,8 @@
+<div class='row'>
+    <h2 class='page-header'>Skills</h2>
+    <ul>
+        <% Skill.all.each do |skill| %>
+            <li><%= skill.name %></li>
+        <% end %>
+    </ul>
+</div>
