@@ -2,12 +2,19 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @events = current_user.is_admin? ? Event.order(:name) : current_user.manager_events
+    if current_user.nil?
+      @events = current_user.is_admin? ? Event.order(:name) : current_user.manager_events
+    else
+      @events = Event.order :name
+    end
   end
 
   def show
   	@event = Event.find(params[:id])
   	@occurrences = @event.occurrences
+    if !Skill.exists?
+      @skill = Skill.new
+    end
   end
 
   def new
@@ -86,7 +93,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :organization_id)
+    params.require(:event).permit(:name, :description, :organization_id, :skill_id)
   end
 
   def skill_id_params
