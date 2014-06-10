@@ -1,6 +1,9 @@
 class SkillsController < ApplicationController
 	before_filter :authenticate_user!
-	before_action :run_authorize
+	# before_action :run_authorize
+
+  def index
+  end
 
 	def new
 		@skill = Skill.new
@@ -12,6 +15,7 @@ class SkillsController < ApplicationController
 		respond_to do |format|
 			if @skill.save
 				format.html { redirect_to admin_skills_path, notice: 'New Skill added' }
+        format.js { redirect_to new_events_path, notice: 'New skill has been added' } # when used from events controller TODO -> better fix needed
 			else
 				format.html { render action: 'new' }
 			end
@@ -29,7 +33,7 @@ class SkillsController < ApplicationController
 
 	private
 
-	def skill_params 
+	def skill_params
 		params.require(:skill).permit(:name)
 	end
 
