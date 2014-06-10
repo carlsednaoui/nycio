@@ -66,3 +66,4 @@ gem 'rails_12factor', group: :production
 
 gem 'cancan'
 gem 'kaminari'
+gem 'simple_form'
